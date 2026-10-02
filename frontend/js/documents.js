@@ -9,7 +9,7 @@ let standardCategories = [];
 async function initDocumentsPage() {
   const token = getToken();
   if (!token) {
-    window.location.href = '/login.html';
+    window.location.href = './login.html';
     return;
   }
   await fetchDocuments();

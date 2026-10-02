@@ -16,7 +16,7 @@ async function initAdminPortal() {
   if (!token || !user || user.role !== 'admin') {
     showToast('Administrator privileges required. Please sign in as admin.', 'warning');
     setTimeout(() => {
-      window.location.href = '/login.html';
+      window.location.href = './login.html';
     }, 800);
     return;
   }

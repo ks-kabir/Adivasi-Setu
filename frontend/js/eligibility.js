@@ -136,7 +136,7 @@ function renderEligibilityResults(data) {
           <div>
             <span class="badge badge-scheme" style="margin-bottom: 0.4rem;">${sch.scheme}</span>
             <h3 style="font-size: 1.25rem; margin-bottom: 0.25rem;">
-              <a href="/scholarship-details.html?id=${sch._id}">${sch.name}</a>
+              <a href="./scholarship-details.html?id=${sch._id}">${sch.name}</a>
             </h3>
             <div style="font-size: 0.82rem; color: var(--text-muted);">🏛️ ${sch.provider}</div>
           </div>
@@ -216,9 +216,9 @@ function renderEligibilityResults(data) {
             <span>Deadline: <strong>${formatDate(sch.deadline)}</strong></span>
           </div>
           <div style="display: flex; gap: 0.5rem;">
-            <a href="/scholarship-details.html?id=${sch._id}" class="btn btn-outline btn-sm">View Details</a>
-            <a href="/documents.html" class="btn btn-outline-primary btn-sm">Manage Documents</a>
-            <a href="/scholarship-details.html?id=${sch._id}&action=apply" class="btn btn-primary btn-sm">Apply Now →</a>
+            <a href="./scholarship-details.html?id=${sch._id}" class="btn btn-outline btn-sm">View Details</a>
+            <a href="./documents.html" class="btn btn-outline-primary btn-sm">Manage Documents</a>
+            <a href="./scholarship-details.html?id=${sch._id}&action=apply" class="btn btn-primary btn-sm">Apply Now →</a>
           </div>
         </div>
       </div>

@@ -15,7 +15,7 @@ async function quickDemoLogin(role = 'student') {
       setCurrentUser(res.user);
       showToast(`Logged in as ${res.user.name} (${role.toUpperCase()})`, 'success');
       setTimeout(() => {
-        window.location.href = res.redirect || (role === 'admin' ? '/admin.html' : '/dashboard.html');
+        window.location.href = appPageUrl(res.redirect || (role === 'admin' ? '/admin.html' : '/dashboard.html'));
       }, 600);
     }
   } catch (error) {
@@ -53,7 +53,7 @@ async function handleLogin(e) {
       setCurrentUser(res.user);
       showToast('Welcome back, ' + res.user.name + '!', 'success');
       setTimeout(() => {
-        window.location.href = res.redirect || '/dashboard.html';
+        window.location.href = appPageUrl(res.redirect || '/dashboard.html');
       }, 600);
     }
   } catch (error) {
@@ -126,7 +126,7 @@ async function handleRegister(e) {
       setCurrentUser(res.user);
       showToast('Account created successfully! Starting student profile onboarding...', 'success');
       setTimeout(() => {
-        window.location.href = '/onboarding.html';
+        window.location.href = './onboarding.html';
       }, 800);
     }
   } catch (error) {
@@ -146,7 +146,7 @@ const totalSteps = 5;
 function initOnboarding() {
   const token = getToken();
   if (!token) {
-    window.location.href = '/login.html';
+    window.location.href = './login.html';
     return;
   }
 
@@ -338,7 +338,7 @@ async function submitOnboardingProfile() {
     if (res.success) {
       showToast('Student Profile completed successfully! Redirecting to Dashboard...', 'success');
       setTimeout(() => {
-        window.location.href = '/dashboard.html';
+        window.location.href = './dashboard.html';
       }, 800);
     }
   } catch (error) {

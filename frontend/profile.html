@@ -7,8 +7,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="/css/scholarships.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/scholarships.css">
 </head>
 <body onload="loadStudentProfilePage()">
 
@@ -26,7 +26,7 @@
   <!-- Navbar -->
   <nav class="site-navbar">
     <div class="container navbar-inner">
-      <a href="/index.html" class="brand-logo">
+      <a href="./index.html" class="brand-logo">
         <div class="brand-icon">🏹</div>
         <div class="brand-text">
           <h1>AdivasiSetu</h1>
@@ -35,11 +35,11 @@
       </a>
 
       <ul class="nav-links" id="nav-links">
-        <li><a href="/dashboard.html" class="nav-link">Dashboard</a></li>
-        <li><a href="/scholarships.html" class="nav-link">Find Scholarships</a></li>
-        <li><a href="/eligibility.html" class="nav-link">Eligibility Engine</a></li>
-        <li><a href="/documents.html" class="nav-link">Document Vault</a></li>
-        <li><a href="/applications.html" class="nav-link">My Applications</a></li>
+        <li><a href="./dashboard.html" class="nav-link">Dashboard</a></li>
+        <li><a href="./scholarships.html" class="nav-link">Find Scholarships</a></li>
+        <li><a href="./eligibility.html" class="nav-link">Eligibility Engine</a></li>
+        <li><a href="./documents.html" class="nav-link">Document Vault</a></li>
+        <li><a href="./applications.html" class="nav-link">My Applications</a></li>
       </ul>
 
       <div class="nav-actions" id="nav-actions">
@@ -246,18 +246,18 @@
     <div class="container footer-bottom">
       <div>© 2026 AdivasiSetu • Student Profile</div>
       <div style="display: flex; gap: 1rem;">
-        <a href="/dashboard.html" style="color: #94a3b8;">Dashboard</a>
-        <a href="/scholarships.html" style="color: #94a3b8;">Scholarships</a>
-        <a href="/index.html" style="color: #94a3b8;">Home</a>
+        <a href="./dashboard.html" style="color: #94a3b8;">Dashboard</a>
+        <a href="./scholarships.html" style="color: #94a3b8;">Scholarships</a>
+        <a href="./index.html" style="color: #94a3b8;">Home</a>
       </div>
     </div>
   </footer>
 
-  <script src="/js/main.js"></script>
+  <script src="./js/main.js"></script>
   <script>
     async function loadStudentProfilePage() {
       const token = getToken();
-      if (!token) { window.location.href = '/login.html'; return; }
+      if (!token) { window.location.href = './login.html'; return; }
 
       try {
         const res = await apiRequest('/students/profile');

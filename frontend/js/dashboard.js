@@ -5,7 +5,7 @@
 async function loadStudentDashboard() {
   const token = getToken();
   if (!token) {
-    window.location.href = '/login.html';
+    window.location.href = './login.html';
     return;
   }
 
@@ -88,7 +88,7 @@ function renderRecommendedScholarships(scholarships) {
     container.innerHTML = `
       <div class="card" style="text-align: center; padding: 2rem;">
         <p style="color: var(--text-muted); margin-bottom: 1rem;">No matching scholarships found for current criteria.</p>
-        <a href="/eligibility.html" class="btn btn-outline-primary btn-sm">Update Eligibility Criteria</a>
+        <a href="./eligibility.html" class="btn btn-outline-primary btn-sm">Update Eligibility Criteria</a>
       </div>
     `;
     return;
@@ -119,7 +119,7 @@ function renderRecommendedScholarships(scholarships) {
         <div class="rec-card-header">
           <div class="rec-title-wrap">
             <span class="badge badge-scheme" style="margin-bottom: 0.35rem;">${sch.scheme}</span>
-            <h4><a href="/scholarship-details.html?id=${sch._id}">${sch.name}</a></h4>
+            <h4><a href="./scholarship-details.html?id=${sch._id}">${sch.name}</a></h4>
             <div class="rec-provider">🏛️ ${sch.provider}</div>
           </div>
           <div class="match-score-badge ${matchClass}" title="Platform-Generated Match Score">
@@ -146,10 +146,10 @@ function renderRecommendedScholarships(scholarships) {
         </div>
 
         <div class="rec-card-actions">
-          <a href="/scholarship-details.html?id=${sch._id}" class="btn btn-outline-primary btn-sm">
+          <a href="./scholarship-details.html?id=${sch._id}" class="btn btn-outline-primary btn-sm">
             View Details & Criteria
           </a>
-          <a href="/scholarship-details.html?id=${sch._id}&action=apply" class="btn btn-primary btn-sm">
+          <a href="./scholarship-details.html?id=${sch._id}&action=apply" class="btn btn-primary btn-sm">
             Apply Now →
           </a>
         </div>
@@ -166,7 +166,7 @@ function renderApplicationsOverview(applications) {
     container.innerHTML = `
       <div style="text-align: center; padding: 2rem; color: var(--text-muted);">
         <p>You haven't submitted any scholarship applications yet.</p>
-        <a href="/scholarships.html" class="btn btn-primary btn-sm">Discover Scholarships</a>
+        <a href="./scholarships.html" class="btn btn-primary btn-sm">Discover Scholarships</a>
       </div>
     `;
     return;
@@ -194,7 +194,7 @@ function renderApplicationsOverview(applications) {
                 <td>${formatDate(app.submittedAt)}</td>
                 <td><span class="badge ${badgeClass}">${app.status}</span></td>
                 <td>
-                  <a href="/application-details.html?id=${app._id}" class="btn btn-outline btn-sm">
+                  <a href="./application-details.html?id=${app._id}" class="btn btn-outline btn-sm">
                     Track Journey →
                   </a>
                 </td>
@@ -221,7 +221,7 @@ function renderUpcomingDeadlines(deadlines) {
     return `
       <div class="deadline-item">
         <div class="deadline-info">
-          <h5><a href="/scholarship-details.html?id=${sch._id}">${sch.name}</a></h5>
+          <h5><a href="./scholarship-details.html?id=${sch._id}">${sch.name}</a></h5>
           <span>Last date: ${formatDate(sch.deadline)}</span>
         </div>
         <div class="deadline-days">

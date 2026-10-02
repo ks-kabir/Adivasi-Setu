@@ -5,6 +5,10 @@
 
 const API_BASE = '/api';
 
+function appPageUrl(path) {
+  return `./${String(path).replace(/^\/+/, '')}`;
+}
+
 // Token & Session Storage
 function getToken() {
   return localStorage.getItem('adivasisetu_token');
@@ -213,18 +217,18 @@ async function setupGlobalNavbar() {
   if (navActions) {
     if (token && user) {
       const isStudent = user.role === 'student';
-      const primaryLink = isStudent ? '/dashboard.html' : '/admin.html';
+      const primaryLink = isStudent ? './dashboard.html' : './admin.html';
       const primaryLabel = isStudent ? 'Dashboard' : 'Admin Portal';
 
       navActions.innerHTML = `
-        <a href="/notifications.html" class="nav-notification-btn" title="JAGO Notifications">
+        <a href="./notifications.html" class="nav-notification-btn" title="JAGO Notifications">
           🔔
           ${unreadCount > 0 ? `<span class="nav-notification-badge">${unreadCount}</span>` : ''}
         </a>
         <a href="${primaryLink}" class="btn btn-outline-primary btn-sm nav-hide-mobile">
           ${primaryLabel}
         </a>
-        <div class="user-menu-pill nav-hide-mobile" id="user-profile-btn" onclick="window.location.href='${isStudent ? '/profile.html' : '/admin.html'}'">
+        <div class="user-menu-pill nav-hide-mobile" id="user-profile-btn" onclick="window.location.href='${isStudent ? './profile.html' : './admin.html'}'">
           <div class="user-avatar-sm">${user.name.charAt(0).toUpperCase()}</div>
           <span class="user-name-text">${user.name.split(' ')[0]}</span>
         </div>
@@ -234,8 +238,8 @@ async function setupGlobalNavbar() {
       `;
     } else {
       navActions.innerHTML = `
-        <a href="/login.html" class="btn btn-outline btn-sm">Sign In</a>
-        <a href="/register.html" class="btn btn-primary btn-sm nav-hide-mobile">Get Started</a>
+        <a href="./login.html" class="btn btn-outline btn-sm">Sign In</a>
+        <a href="./register.html" class="btn btn-primary btn-sm nav-hide-mobile">Get Started</a>
       `;
     }
   }
@@ -294,48 +298,48 @@ function buildMobileDrawer(user, token, unreadCount, currentPath) {
       <ul class="mobile-drawer-links">
         ${isStudent ? `
           <li>
-            <a href="/dashboard.html" class="mobile-drawer-link ${currentPath === 'dashboard.html' ? 'active' : ''}">
+            <a href="./dashboard.html" class="mobile-drawer-link ${currentPath === 'dashboard.html' ? 'active' : ''}">
               <span class="icon">📊</span> Dashboard
             </a>
           </li>
           <li>
-            <a href="/scholarships.html" class="mobile-drawer-link ${currentPath === 'scholarships.html' ? 'active' : ''}">
+            <a href="./scholarships.html" class="mobile-drawer-link ${currentPath === 'scholarships.html' ? 'active' : ''}">
               <span class="icon">🔍</span> Find Scholarships
             </a>
           </li>
           <li>
-            <a href="/eligibility.html" class="mobile-drawer-link ${currentPath === 'eligibility.html' ? 'active' : ''}">
+            <a href="./eligibility.html" class="mobile-drawer-link ${currentPath === 'eligibility.html' ? 'active' : ''}">
               <span class="icon">🎯</span> Eligibility Engine
             </a>
           </li>
           <li>
-            <a href="/documents.html" class="mobile-drawer-link ${currentPath === 'documents.html' ? 'active' : ''}">
+            <a href="./documents.html" class="mobile-drawer-link ${currentPath === 'documents.html' ? 'active' : ''}">
               <span class="icon">📁</span> Document Vault
             </a>
           </li>
           <li>
-            <a href="/applications.html" class="mobile-drawer-link ${currentPath === 'applications.html' ? 'active' : ''}">
+            <a href="./applications.html" class="mobile-drawer-link ${currentPath === 'applications.html' ? 'active' : ''}">
               <span class="icon">📝</span> My Applications
             </a>
           </li>
           <li>
-            <a href="/profile.html" class="mobile-drawer-link ${currentPath === 'profile.html' ? 'active' : ''}">
+            <a href="./profile.html" class="mobile-drawer-link ${currentPath === 'profile.html' ? 'active' : ''}">
               <span class="icon">👤</span> My Profile
             </a>
           </li>
           <li>
-            <a href="/notifications.html" class="mobile-drawer-link ${currentPath === 'notifications.html' ? 'active' : ''}">
+            <a href="./notifications.html" class="mobile-drawer-link ${currentPath === 'notifications.html' ? 'active' : ''}">
               <span class="icon">🔔</span> Notifications ${unreadCount > 0 ? `<span class="badge" style="background: #ef4444; color: #fff; margin-left: auto;">${unreadCount}</span>` : ''}
             </a>
           </li>
         ` : `
           <li>
-            <a href="/admin.html" class="mobile-drawer-link active">
+            <a href="./admin.html" class="mobile-drawer-link active">
               <span class="icon">🛡️</span> Admin Scrutiny Portal
             </a>
           </li>
           <li>
-            <a href="/index.html" class="mobile-drawer-link">
+            <a href="./index.html" class="mobile-drawer-link">
               <span class="icon">🌐</span> View Student Portal
             </a>
           </li>
@@ -358,35 +362,35 @@ function buildMobileDrawer(user, token, unreadCount, currentPath) {
 
       <ul class="mobile-drawer-links">
         <li>
-          <a href="/index.html" class="mobile-drawer-link ${currentPath === 'index.html' ? 'active' : ''}">
+          <a href="./index.html" class="mobile-drawer-link ${currentPath === 'index.html' ? 'active' : ''}">
             <span class="icon">🏠</span> Home
           </a>
         </li>
         <li>
-          <a href="/scholarships.html" class="mobile-drawer-link ${currentPath === 'scholarships.html' ? 'active' : ''}">
+          <a href="./scholarships.html" class="mobile-drawer-link ${currentPath === 'scholarships.html' ? 'active' : ''}">
             <span class="icon">🔍</span> Explore Scholarships
           </a>
         </li>
         <li>
-          <a href="/eligibility.html" class="mobile-drawer-link ${currentPath === 'eligibility.html' ? 'active' : ''}">
+          <a href="./eligibility.html" class="mobile-drawer-link ${currentPath === 'eligibility.html' ? 'active' : ''}">
             <span class="icon">🎯</span> Check Eligibility
           </a>
         </li>
         <li>
-          <a href="/index.html#how-it-works" class="mobile-drawer-link" onclick="closeMobileNav()">
+          <a href="./index.html#how-it-works" class="mobile-drawer-link" onclick="closeMobileNav()">
             <span class="icon">ℹ️</span> How It Works
           </a>
         </li>
         <li>
-          <a href="/index.html#about" class="mobile-drawer-link" onclick="closeMobileNav()">
+          <a href="./index.html#about" class="mobile-drawer-link" onclick="closeMobileNav()">
             <span class="icon">📖</span> About & FAQs
           </a>
         </li>
       </ul>
 
       <div class="mobile-drawer-footer">
-        <a href="/login.html" class="btn btn-outline-primary btn-block">Sign In</a>
-        <a href="/register.html" class="btn btn-primary btn-block">Get Started Free</a>
+        <a href="./login.html" class="btn btn-outline-primary btn-block">Sign In</a>
+        <a href="./register.html" class="btn btn-primary btn-block">Get Started Free</a>
         <div style="display: flex; gap: 0.5rem; margin-top: 0.5rem;">
           <button type="button" class="btn btn-outline btn-sm" style="flex: 1; font-size: 0.78rem;" onclick="quickDemoLogin('student')">
             Demo Student
@@ -412,7 +416,7 @@ function logoutUser() {
   removeToken();
   showToast('You have been safely signed out.', 'info');
   setTimeout(() => {
-    window.location.href = '/login.html';
+    window.location.href = './login.html';
   }, 500);
 }
 

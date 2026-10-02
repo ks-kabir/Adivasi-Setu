@@ -201,7 +201,7 @@ function renderScholarshipCards(scholarships) {
           </div>
 
           <h3 class="sch-title">
-            <a href="/scholarship-details.html?id=${sch._id}">${sch.name}</a>
+            <a href="./scholarship-details.html?id=${sch._id}">${sch.name}</a>
           </h3>
           <div class="sch-provider">🏛️ ${sch.provider}</div>
           <p class="sch-desc">${sch.description}</p>
@@ -232,10 +232,10 @@ function renderScholarshipCards(scholarships) {
         </div>
 
         <div class="sch-card-footer">
-          <a href="/scholarship-details.html?id=${sch._id}" class="btn btn-outline-primary btn-sm">
+          <a href="./scholarship-details.html?id=${sch._id}" class="btn btn-outline-primary btn-sm">
             View Details
           </a>
-          <a href="/scholarship-details.html?id=${sch._id}&action=apply" class="btn btn-primary btn-sm">
+          <a href="./scholarship-details.html?id=${sch._id}&action=apply" class="btn btn-primary btn-sm">
             Apply Now →
           </a>
         </div>
@@ -248,7 +248,7 @@ async function toggleSaveScholarship(schId, btnElement) {
   const token = getToken();
   if (!token) {
     showToast('Please sign in to save scholarships.', 'warning');
-    setTimeout(() => { window.location.href = '/login.html'; }, 1000);
+    setTimeout(() => { window.location.href = './login.html'; }, 1000);
     return;
   }
 
@@ -281,7 +281,7 @@ async function loadScholarshipDetails() {
   const schId = urlParams.get('id');
 
   if (!schId) {
-    window.location.href = '/scholarships.html';
+    window.location.href = './scholarships.html';
     return;
   }
 
@@ -349,7 +349,7 @@ function renderDetailsMatchScore(sch) {
         <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0.5rem 0 1rem;">
           Sign in to automatically evaluate your ST profile against this scholarship's rules.
         </p>
-        <a href="/login.html" class="btn btn-outline-primary btn-sm">Sign In to Check Match</a>
+        <a href="./login.html" class="btn btn-outline-primary btn-sm">Sign In to Check Match</a>
       </div>
     `;
     return;
@@ -467,7 +467,7 @@ function openApplyModal() {
   if (!token) {
     showToast('Please log in as a student to apply.', 'warning');
     setTimeout(() => {
-      window.location.href = `/login.html?redirect=${encodeURIComponent(window.location.pathname + window.location.search)}`;
+      window.location.href = `./login.html?redirect=${encodeURIComponent(window.location.pathname + window.location.search)}`;
     }, 800);
     return;
   }
@@ -542,7 +542,7 @@ async function submitScholarshipApplication() {
       closeModal('apply-confirmation-modal');
       showToast(`Application successfully filed! ID: ${res.applicationId}`, 'success');
       setTimeout(() => {
-        window.location.href = `/application-details.html?id=${res.application._id}`;
+        window.location.href = `./application-details.html?id=${res.application._id}`;
       }, 1000);
     }
   } catch (error) {

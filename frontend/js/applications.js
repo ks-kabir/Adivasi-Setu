@@ -9,7 +9,7 @@ let currentFilterTab = 'All';
 async function initApplicationsPage() {
   const token = getToken();
   if (!token) {
-    window.location.href = '/login.html';
+    window.location.href = './login.html';
     return;
   }
   setupApplicationTabListeners();
@@ -62,7 +62,7 @@ function renderApplicationsList() {
         <p style="color: var(--text-muted); margin: 0.5rem 0 1.5rem;">
           ${currentFilterTab === 'All' ? 'You have not submitted any applications yet.' : `There are no applications currently marked as ${currentFilterTab}.`}
         </p>
-        <a href="/scholarships.html" class="btn btn-primary btn-sm">Find Scholarships to Apply</a>
+        <a href="./scholarships.html" class="btn btn-primary btn-sm">Find Scholarships to Apply</a>
       </div>
     `;
     return;
@@ -81,7 +81,7 @@ function renderApplicationsList() {
               <span class="badge ${badgeClass}">${app.status}</span>
             </div>
             <h3 style="font-size: 1.2rem; margin-bottom: 0.25rem;">
-              <a href="/application-details.html?id=${app._id}">${sch.name || 'Scholarship'}</a>
+              <a href="./application-details.html?id=${app._id}">${sch.name || 'Scholarship'}</a>
             </h3>
             <div style="font-size: 0.84rem; color: var(--text-muted);">🏛️ ${sch.provider || 'Ministry of Tribal Affairs'}</div>
           </div>
@@ -110,8 +110,8 @@ function renderApplicationsList() {
         ` : ''}
 
         <div style="display: flex; justify-content: flex-end; gap: 0.5rem;">
-          <a href="/scholarship-details.html?id=${sch._id}" class="btn btn-outline btn-sm">Scheme Info</a>
-          <a href="/application-details.html?id=${app._id}" class="btn btn-primary btn-sm">Track Application Journey →</a>
+          <a href="./scholarship-details.html?id=${sch._id}" class="btn btn-outline btn-sm">Scheme Info</a>
+          <a href="./application-details.html?id=${app._id}" class="btn btn-primary btn-sm">Track Application Journey →</a>
         </div>
       </div>
     `;
@@ -137,7 +137,7 @@ async function loadApplicationTracker() {
   const appId = urlParams.get('id');
 
   if (!appId) {
-    window.location.href = '/applications.html';
+    window.location.href = './applications.html';
     return;
   }
 
