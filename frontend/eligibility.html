@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Eligibility Engine | AdivasiSetu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/scholarships.css">
+</head>
+<body onload="initEligibilityPage()">
+
+  <!-- Top Bar -->
+  <div class="gov-top-bar">
+    <div class="container">
+      <div class="gov-emblem-text">
+        <span class="flag">🇮🇳</span>
+        <span>AdivasiSetu 6-Factor Transparent Rule Engine</span>
+      </div>
+      <div class="demo-notice-tag">Explainable Criteria Matching</div>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="site-navbar">
+    <div class="container navbar-inner">
+      <a href="/index.html" class="brand-logo">
+        <div class="brand-icon">🏹</div>
+        <div class="brand-text">
+          <h1>AdivasiSetu</h1>
+          <span>Tribal Scholarship Portal</span>
+        </div>
+      </a>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="/index.html" class="nav-link">Home</a></li>
+        <li><a href="/scholarships.html" class="nav-link">Scholarships</a></li>
+        <li><a href="/eligibility.html" class="nav-link active">Eligibility Engine</a></li>
+        <li><a href="/documents.html" class="nav-link">Document Vault</a></li>
+        <li><a href="/dashboard.html" class="nav-link">Dashboard</a></li>
+      </ul>
+
+      <div class="nav-actions" id="nav-actions">
+        <!-- Dynamically injected -->
+      </div>
+    </div>
+  </nav>
+
+  <main class="eligibility-container">
+    <!-- Hero Banner (Section 10) -->
+    <div class="eligibility-hero-box">
+      <span class="badge" style="background: rgba(255,255,255,0.2); color: #ffffff; margin-bottom: 0.75rem;">
+        6-Dimensional Rule Engine
+      </span>
+      <h1>Transparent Scholarship Match Engine</h1>
+      <p>
+        No black-box algorithms. We evaluate Category (20%), Education (20%), Income (20%), Academic marks (15%), State domicile (10%), and Document readiness (15%) against published government norms.
+      </p>
+    </div>
+
+    <!-- Interactive Parameter Configurator -->
+    <div class="eligibility-card-interactive">
+      <h3 style="margin-bottom: 0.35rem;">Configure Your Criteria for Evaluation</h3>
+      <p style="color: var(--text-muted); font-size: 0.88rem; margin-bottom: 1.5rem;">
+        Pre-populated with your student profile. You can tweak parameters below to test "What-If" scenarios.
+      </p>
+
+      <div class="grid grid-cols-3">
+        <!-- Category -->
+        <div class="form-group">
+          <label class="form-label" for="el-category">Social Category</label>
+          <select id="el-category" class="form-control">
+            <option value="Scheduled Tribe (ST)">Scheduled Tribe (ST)</option>
+            <option value="General">General / Non-ST</option>
+          </select>
+        </div>
+
+        <!-- Community -->
+        <div class="form-group">
+          <label class="form-label" for="el-community">Tribal Community</label>
+          <input type="text" id="el-community" class="form-control" value="Santhal" placeholder="e.g. Santhal, Gond, Bhil">
+        </div>
+
+        <!-- State -->
+        <div class="form-group">
+          <label class="form-label" for="el-state">State of Domicile</label>
+          <select id="el-state" class="form-control">
+            <option value="Jharkhand">Jharkhand</option>
+            <option value="Odisha">Odisha</option>
+            <option value="Madhya Pradesh">Madhya Pradesh</option>
+            <option value="Chhattisgarh">Chhattisgarh</option>
+            <option value="Maharashtra">Maharashtra</option>
+            <option value="Rajasthan">Rajasthan</option>
+            <option value="Gujarat">Gujarat</option>
+            <option value="Assam">Assam</option>
+            <option value="Other">Other State</option>
+          </select>
+        </div>
+
+        <!-- Education Level -->
+        <div class="form-group">
+          <label class="form-label" for="el-edu-level">Current Academic Level</label>
+          <select id="el-edu-level" class="form-control">
+            <option value="Class 9-10 (Pre-Matric)">Class 9-10 (Pre-Matric)</option>
+            <option value="Class 11-12 (Higher Secondary)">Class 11-12 (Higher Secondary)</option>
+            <option value="Diploma / Polytechnic">Diploma / Polytechnic</option>
+            <option value="Undergraduate (UG)" selected>Undergraduate (UG Degree)</option>
+            <option value="Postgraduate (PG)">Postgraduate (PG Degree)</option>
+            <option value="M.Phil / Ph.D. / Research">M.Phil / Ph.D. / Research</option>
+            <option value="Overseas Studies (Master/PhD)">Overseas Studies (Abroad)</option>
+          </select>
+        </div>
+
+        <!-- Qualifying Percentage Slider -->
+        <div class="form-group">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem;">
+            <label class="form-label" for="el-percentage" style="margin: 0;">Exam Percentage</label>
+            <strong id="marks-display" style="color: var(--primary);">75%</strong>
+          </div>
+          <input type="range" id="el-percentage" min="40" max="100" value="75" step="1" style="width: 100%; accent-color: var(--primary);" oninput="document.getElementById('marks-display').textContent = this.value + '%'">
+        </div>
+
+        <!-- Annual Family Income Slider -->
+        <div class="form-group">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem;">
+            <label class="form-label" for="el-income" style="margin: 0;">Family Annual Income</label>
+            <strong id="income-display" style="color: var(--primary);">₹1,80,000</strong>
+          </div>
+          <input type="range" id="el-income" min="50000" max="900000" value="180000" step="25000" style="width: 100%; accent-color: var(--primary);" oninput="document.getElementById('income-display').textContent = '₹' + Number(this.value).toLocaleString('en-IN')">
+        </div>
+      </div>
+
+      <!-- Document Readiness Checkboxes -->
+      <div style="margin: 1rem 0; padding: 1.15rem; background-color: var(--bg-alt); border-radius: var(--radius-md); border: 1px solid var(--border);">
+        <label class="form-label" style="margin-bottom: 0.75rem; font-weight: 700;">Ready / Verified Documents Available:</label>
+        <div class="doc-checkbox-grid">
+          <label class="form-check">
+            <input type="checkbox" name="el-docs" value="Aadhaar Card" checked>
+            <span>Aadhaar Card</span>
+          </label>
+          <label class="form-check">
+            <input type="checkbox" name="el-docs" value="ST Community Certificate" checked>
+            <span>ST Certificate</span>
+          </label>
+          <label class="form-check">
+            <input type="checkbox" name="el-docs" value="Income Certificate" checked>
+            <span>Income Certificate</span>
+          </label>
+          <label class="form-check">
+            <input type="checkbox" name="el-docs" value="Marksheet" checked>
+            <span>Marksheet</span>
+          </label>
+          <label class="form-check">
+            <input type="checkbox" name="el-docs" value="Bank Passbook" checked>
+            <span>Bank Passbook</span>
+          </label>
+          <label class="form-check">
+            <input type="checkbox" name="el-docs" value="Admission Proof" checked>
+            <span>Admission Letter</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="eligibility-action-box" style="text-align: right; margin-top: 1.5rem;">
+        <button class="btn btn-primary btn-lg" id="run-check-btn" onclick="runEligibilityCheck()">
+          Recalculate Eligibility Match 🎯
+        </button>
+      </div>
+    </div>
+
+    <!-- Results Area (Section 11) -->
+    <div id="eligibility-results-area">
+      <!-- Injected by eligibility.js -->
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-bottom">
+      <div>© 2026 AdivasiSetu • Smart Eligibility Engine</div>
+      <div style="display: flex; gap: 1rem;">
+        <a href="/scholarships.html" style="color: #94a3b8;">Scholarships</a>
+        <a href="/dashboard.html" style="color: #94a3b8;">Dashboard</a>
+        <a href="/index.html" style="color: #94a3b8;">Home</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script src="/js/eligibility.js"></script>
+</body>
+</html>

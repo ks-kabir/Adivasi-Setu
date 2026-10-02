@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AdivasiSetu — One Platform • Five Schemes • One Scholarship Journey</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/scholarships.css">
+</head>
+<body>
+
+  <!-- Top Government Emblem & Prototype Notice -->
+  <div class="gov-top-bar">
+    <div class="container">
+      <div class="gov-emblem-text">
+        <span class="flag">🇮🇳</span>
+        <span>AdivasiSetu National Tribal Welfare Scholarship Initiative</span>
+      </div>
+      <div class="demo-notice-tag">
+        ⭐ Prototype / Educational Demonstration Portal
+      </div>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="site-navbar">
+    <div class="container navbar-inner">
+      <a href="/index.html" class="brand-logo">
+        <div class="brand-icon">🏹</div>
+        <div class="brand-text">
+          <h1>AdivasiSetu</h1>
+          <span>Tribal Scholarship Portal</span>
+        </div>
+      </a>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="/index.html" class="nav-link active">Home</a></li>
+        <li><a href="/scholarships.html" class="nav-link">Scholarships</a></li>
+        <li><a href="/eligibility.html" class="nav-link">Eligibility Engine</a></li>
+        <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+      </ul>
+
+      <div class="nav-actions" id="nav-actions">
+        <!-- Injected dynamically by main.js based on auth state -->
+        <a href="/login.html" class="btn btn-outline btn-sm">Sign In</a>
+        <a href="/register.html" class="btn btn-primary btn-sm">Get Started</a>
+      </div>
+
+      <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
+    </div>
+  </nav>
+
+  <!-- JAGO Advisory Notice Strip -->
+  <div class="container">
+    <div class="jago-banner" style="margin-top: 1.5rem; margin-bottom: 0.5rem;">
+      <div class="jago-icon-box">🔔</div>
+      <div class="jago-content">
+        <h4>JAGO Alert: AY 2026-27 ST Scholarship Applications Now Open</h4>
+        <p>Pre-Matric, Post-Matric, Top Class, NFST, and National Overseas Scholarship portals are active. Check your 6-factor eligibility match in under 2 minutes.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <header class="hero-header">
+    <div class="container" style="text-align: center; max-width: 920px;">
+      <span class="badge badge-scheme" style="font-size: 0.85rem; padding: 0.4rem 1rem; margin-bottom: 1.25rem;">
+        🏹 Empowering Scheduled Tribe Students Across India
+      </span>
+      <h1 class="hero-title">
+        One Platform. Five Scholarships.<br>
+        <span style="color: var(--primary);">One Simple Journey.</span>
+      </h1>
+      <p class="hero-subtitle">
+        AdivasiSetu eliminates fragmented scholarship portals for tribal students. Discover verified government schemes, calculate rule-based eligibility with clear explanations, upload documents once, and track your application from desk review to DBT disbursement.
+      </p>
+
+      <div class="hero-cta-group">
+        <a href="/scholarships.html" class="btn btn-primary btn-lg">
+          🔍 Find Scholarships
+        </a>
+        <a href="/eligibility.html" class="btn btn-accent btn-lg">
+          🎯 Check Eligibility
+        </a>
+        <a href="/login.html" class="btn btn-outline btn-lg">
+          ⚡ 1-Click Demo Login
+        </a>
+      </div>
+
+
+      <!-- Core Scholarship Journey Visual -->
+      <div class="journey-bar" style="text-align: left;">
+        <div class="journey-bar-title">The Unified AdivasiSetu Scholarship Journey:</div>
+        <div class="journey-steps">
+          <div class="journey-line">
+            <div class="journey-line-progress" style="width: 20%;"></div>
+          </div>
+          <div class="journey-step active">
+            <div class="journey-step-circle">1</div>
+            <div class="journey-step-label">Discover</div>
+          </div>
+          <div class="journey-step">
+            <div class="journey-step-circle">2</div>
+            <div class="journey-step-label">Check Eligibility</div>
+          </div>
+          <div class="journey-step">
+            <div class="journey-step-circle">3</div>
+            <div class="journey-step-label">Verify Docs</div>
+          </div>
+          <div class="journey-step">
+            <div class="journey-step-circle">4</div>
+            <div class="journey-step-label">Apply</div>
+          </div>
+          <div class="journey-step">
+            <div class="journey-step-circle">5</div>
+            <div class="journey-step-label">Track</div>
+          </div>
+          <div class="journey-step">
+            <div class="journey-step-circle">6</div>
+            <div class="journey-step-label">Receive DBT</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Problem Section -->
+  <section style="padding: 4.5rem 0; background-color: #ffffff;">
+    <div class="container">
+      <div style="text-align: center; max-width: 680px; margin: 0 auto 3rem;">
+        <span class="badge" style="background: #fee2e2; color: #991b1b; margin-bottom: 0.5rem;">The Challenge</span>
+        <h2>Why Tribal Students Miss Out on Scholarship Grants</h2>
+        <p style="color: var(--text-muted); margin-top: 0.5rem;">
+          Over 40% of eligible tribal students fail to receive allocated welfare funds due to administrative fragmentation and complex verification hurdles.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-4">
+        <div class="card" style="border-top: 4px solid #ef4444;">
+          <div style="font-size: 2rem; margin-bottom: 0.75rem;">🌐</div>
+          <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem;">Scattered Information</h3>
+          <p style="font-size: 0.88rem; color: var(--text-muted);">
+            Scholarship notifications are scattered across state portals, central sites, and departmental notices with conflicting deadlines.
+          </p>
+        </div>
+
+        <div class="card" style="border-top: 4px solid #f59e0b;">
+          <div style="font-size: 2rem; margin-bottom: 0.75rem;">❓</div>
+          <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem;">Eligibility Confusion</h3>
+          <p style="font-size: 0.88rem; color: var(--text-muted);">
+            Students cannot easily tell if their family income ceiling, course level, or domicile matches complex official eligibility rules.
+          </p>
+        </div>
+
+        <div class="card" style="border-top: 4px solid #3b82f6;">
+          <div style="font-size: 2rem; margin-bottom: 0.75rem;">📑</div>
+          <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem;">Repeated Documentation</h3>
+          <p style="font-size: 0.88rem; color: var(--text-muted);">
+            ST certificates, income proofs, and marksheets must be repeatedly scanned, sized, and resubmitted for every single scheme.
+          </p>
+        </div>
+
+        <div class="card" style="border-top: 4px solid #8b5cf6;">
+          <div style="font-size: 2rem; margin-bottom: 0.75rem;">⏱️</div>
+          <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem;">Difficult Tracking</h3>
+          <p style="font-size: 0.88rem; color: var(--text-muted);">
+            After submitting, students have zero visibility into where their file is stuck, whether documents were rejected, or when DBT will arrive.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solution Section -->
+  <section style="padding: 4.5rem 0; background-color: var(--bg-page);">
+    <div class="container">
+      <div style="text-align: center; max-width: 680px; margin: 0 auto 3rem;">
+        <span class="badge badge-scheme" style="margin-bottom: 0.5rem;">The AdivasiSetu Solution</span>
+        <h2>A Unified Architecture Designed for Tribal Students</h2>
+        <p style="color: var(--text-muted); margin-top: 0.5rem;">
+          Bridging the gap between government welfare schemes and tribal communities with transparent technology.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-3">
+        <div class="card">
+          <div style="font-size: 1.8rem; margin-bottom: 0.75rem;">🏛️</div>
+          <h4>Unified Platform</h4>
+          <p style="font-size: 0.88rem; color: var(--text-muted);">
+            All 5 major central and state ST schemes unified into one single dashboard. No multiple logins or portals required.
+          </p>
+        </div>
+
+        <div class="card">
+          <div style="font-size: 1.8rem; margin-bottom: 0.75rem;">🎯</div>
+          <h4>Smart Eligibility Engine</h4>
+          <p style="font-size: 0.88rem; color: var(--text-muted);">
+            6-factor rule matching evaluates Category, Education, Income, Academic score, State, and Document readiness with explainable reasons.
+          </p>
+        </div>
+
+        <div class="card">
+          <div style="font-size: 1.8rem; margin-bottom: 0.75rem;">📁</div>
+          <h4>One-Time Document Vault</h4>
+          <p style="font-size: 0.88rem; color: var(--text-muted);">
+            Upload certificates once with clear size limits (&le; 5 MB), instant status feedback, and explicit reasons for any rejected document.
+          </p>
+        </div>
+
+        <div class="card">
+          <div style="font-size: 1.8rem; margin-bottom: 0.75rem;">🚀</div>
+          <h4>Easy 1-Click Application</h4>
+          <p style="font-size: 0.88rem; color: var(--text-muted);">
+            Once your student profile is complete, apply to matching schemes directly without re-typing academic or banking credentials.
+          </p>
+        </div>
+
+        <div class="card">
+          <div style="font-size: 1.8rem; margin-bottom: 0.75rem;">📍</div>
+          <h4>6-Stage Journey Tracker</h4>
+          <p style="font-size: 0.88rem; color: var(--text-muted);">
+            Follow your file from Profile Completed &rarr; Documents Submitted &rarr; Desk Scrutiny &rarr; Committee Sanction &rarr; DBT Credit.
+          </p>
+        </div>
+
+        <div class="card" style="border-left: 4px solid var(--accent);">
+          <div style="font-size: 1.8rem; margin-bottom: 0.75rem;">🔔</div>
+          <h4>JAGO Alert System</h4>
+          <p style="font-size: 0.88rem; color: var(--text-muted);">
+            Integrated tribal scholarship awareness assistant delivering timely deadline reminders, eligibility alerts, and verification notifications.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Five Schemes Showcase -->
+  <section style="padding: 4.5rem 0; background-color: #ffffff;" id="scholarships-section">
+    <div class="container">
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2.5rem; flex-wrap: wrap; gap: 1rem;">
+        <div>
+          <span class="badge badge-scheme" style="margin-bottom: 0.5rem;">Official Welfare Coverage</span>
+          <h2>The Five Core Scholarship Schemes</h2>
+          <p style="color: var(--text-muted); margin: 0;">Targeted financial assistance spanning secondary school to international doctoral research.</p>
+        </div>
+        <a href="/scholarships.html" class="btn btn-outline-primary btn-sm">View All & Filter →</a>
+      </div>
+
+      <div class="grid grid-cols-3">
+        <!-- Scheme 1 -->
+        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <span class="badge badge-scheme" style="margin-bottom: 0.5rem;">Pre-Matric</span>
+            <h3 style="font-size: 1.15rem; margin-bottom: 0.4rem;">Pre-Matric Scholarship for ST Students</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.75rem;">Classes 9 & 10 in recognized schools</p>
+            <p style="font-size: 0.88rem; color: var(--text-body); margin-bottom: 1rem;">
+              Financial assistance to prevent secondary school dropouts and support tribal students transition to higher secondary education.
+            </p>
+            <div style="background: var(--bg-alt); padding: 0.65rem 0.85rem; border-radius: var(--radius-md); font-size: 0.82rem; margin-bottom: 1rem;">
+              <div>💰 <strong>₹3,500 - ₹7,000 / year</strong></div>
+              <div>👥 Family Income: ≤ ₹2.5 Lakh/yr</div>
+            </div>
+          </div>
+          <a href="/scholarships.html?scheme=Pre-Matric+Scholarship" class="btn btn-outline btn-sm btn-block">Explore Scheme →</a>
+        </div>
+
+        <!-- Scheme 2 -->
+        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <span class="badge badge-scheme" style="margin-bottom: 0.5rem;">Post-Matric</span>
+            <h3 style="font-size: 1.15rem; margin-bottom: 0.4rem;">Post-Matric Scholarship for ST (PMS-ST)</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.75rem;">Classes 11-12, Diploma, UG, PG, Medical, Engg</p>
+            <p style="font-size: 0.88rem; color: var(--text-body); margin-bottom: 1rem;">
+              Full non-refundable tuition fees reimbursed directly + monthly living and study tour allowances across higher education degrees.
+            </p>
+            <div style="background: var(--bg-alt); padding: 0.65rem 0.85rem; border-radius: var(--radius-md); font-size: 0.82rem; margin-bottom: 1rem;">
+              <div>💰 <strong>Full Tuition + ₹13,500 Maintenance</strong></div>
+              <div>👥 Family Income: ≤ ₹2.5 Lakh/yr</div>
+            </div>
+          </div>
+          <a href="/scholarships.html?scheme=Post-Matric+Scholarship" class="btn btn-outline btn-sm btn-block">Explore Scheme →</a>
+        </div>
+
+        <!-- Scheme 3 -->
+        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between; border-color: var(--primary);">
+          <div>
+            <span class="badge" style="background-color: #dcfce7; color: #166534; margin-bottom: 0.5rem;">Top Class Premier</span>
+            <h3 style="font-size: 1.15rem; margin-bottom: 0.4rem;">Top Class Education for ST Students</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.75rem;">IITs, IIMs, NITs, AIIMS, NLUs (260+ Institutes)</p>
+            <p style="font-size: 0.88rem; color: var(--text-body); margin-bottom: 1rem;">
+              100% Central Sector scholarship covering complete tuition, laptop grant of ₹45,000, and living stipend in premier national institutes.
+            </p>
+            <div style="background: var(--bg-alt); padding: 0.65rem 0.85rem; border-radius: var(--radius-md); font-size: 0.82rem; margin-bottom: 1rem;">
+              <div>💰 <strong>Full Fees + ₹86,000 Allowances</strong></div>
+              <div>👥 Family Income: ≤ ₹6.0 Lakh/yr</div>
+            </div>
+          </div>
+          <a href="/scholarships.html?scheme=Top+Class+Scholarship" class="btn btn-primary btn-sm btn-block">Explore Scheme →</a>
+        </div>
+
+        <!-- Scheme 4 -->
+        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <span class="badge badge-scheme" style="margin-bottom: 0.5rem;">Research Fellowship</span>
+            <h3 style="font-size: 1.15rem; margin-bottom: 0.4rem;">National Fellowship for ST Students (NFST)</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.75rem;">M.Phil & Ph.D. Research Scholars</p>
+            <p style="font-size: 0.88rem; color: var(--text-body); margin-bottom: 1rem;">
+              Monthly fellowship of ₹37,000 (JRF) & ₹42,000 (SRF) plus contingency grant for tribal scholars pursuing advanced research.
+            </p>
+            <div style="background: var(--bg-alt); padding: 0.65rem 0.85rem; border-radius: var(--radius-md); font-size: 0.82rem; margin-bottom: 1rem;">
+              <div>💰 <strong>₹37,000 - ₹42,000 / month + HRA</strong></div>
+              <div>👥 Family Income: ≤ ₹6.0 Lakh/yr</div>
+            </div>
+          </div>
+          <a href="/scholarships.html?scheme=NFST" class="btn btn-outline btn-sm btn-block">Explore Scheme →</a>
+        </div>
+
+        <!-- Scheme 5 -->
+        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <span class="badge badge-scheme" style="margin-bottom: 0.5rem;">International Studies</span>
+            <h3 style="font-size: 1.15rem; margin-bottom: 0.4rem;">National Overseas Scholarship (NOS-ST)</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.75rem;">Master's & Ph.D. in Top 500 QS Universities Abroad</p>
+            <p style="font-size: 0.88rem; color: var(--text-body); margin-bottom: 1rem;">
+              Complete international tuition fees, airfare, medical cover, and $15,400 / £9,900 annual living maintenance for global degree programs.
+            </p>
+            <div style="background: var(--bg-alt); padding: 0.65rem 0.85rem; border-radius: var(--radius-md); font-size: 0.82rem; margin-bottom: 1rem;">
+              <div>💰 <strong>100% Tuition + Living Stipend + Airfare</strong></div>
+              <div>👥 Family Income: ≤ ₹8.0 Lakh/yr</div>
+            </div>
+          </div>
+          <a href="/scholarships.html?scheme=National+Overseas+Scholarship" class="btn btn-outline btn-sm btn-block">Explore Scheme →</a>
+        </div>
+
+        <!-- Interactive Eligibility CTA Card -->
+        <div class="card" style="background: linear-gradient(135deg, #115e59 0%, #1e293b 100%); color: #ffffff; display: flex; flex-direction: column; justify-content: center; text-align: center; padding: 2rem;">
+          <h3 style="color: #ffffff; margin-bottom: 0.75rem;">Which scheme matches your profile?</h3>
+          <p style="color: #ccfbf1; font-size: 0.88rem; margin-bottom: 1.5rem;">
+            Test your criteria with our transparent 6-factor algorithm and get explainable match scores instantly.
+          </p>
+          <a href="/eligibility.html" class="btn btn-accent btn-md">Run Eligibility Engine 🎯</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section style="padding: 4.5rem 0; background-color: var(--bg-page);" id="how-it-works">
+    <div class="container">
+      <div style="text-align: center; max-width: 680px; margin: 0 auto 3rem;">
+        <span class="badge badge-scheme" style="margin-bottom: 0.5rem;">Step-by-Step Flow</span>
+        <h2>How AdivasiSetu Works</h2>
+        <p style="color: var(--text-muted); margin-top: 0.5rem;">
+          From discovering grants to seeing funds credited in your Aadhaar-seeded bank account.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-3">
+        <div class="card">
+          <div style="font-weight: 800; font-size: 1.5rem; color: var(--primary); margin-bottom: 0.5rem;">01</div>
+          <h4>Create Student Profile</h4>
+          <p style="font-size: 0.88rem; color: var(--text-muted);">
+            Sign up with your basic mobile, email, and state domicile to establish your secure student identity.
+          </p>
+        </div>
+
+        <div class="card">
+          <div style="font-weight: 800; font-size: 1.5rem; color: var(--primary); margin-bottom: 0.5rem;">02</div>
+          <h4>Enter Academic & Social Details</h4>
+          <p style="font-size: 0.88rem; color: var(--text-muted);">
+            Record your tribal community, qualification marks, course level, and annual household income certificate.
+          </p>
+        </div>
+
+        <div class="card">
+          <div style="font-weight: 800; font-size: 1.5rem; color: var(--primary); margin-bottom: 0.5rem;">03</div>
+          <h4>Check Explainable Eligibility</h4>
+          <p style="font-size: 0.88rem; color: var(--text-muted);">
+            The algorithm evaluates all 5 schemes and shows exactly why you match, plus any missing requirements.
+          </p>
+        </div>
+
+        <div class="card">
+          <div style="font-weight: 800; font-size: 1.5rem; color: var(--primary); margin-bottom: 0.5rem;">04</div>
+          <h4>Verify Document Vault</h4>
+          <p style="font-size: 0.88rem; color: var(--text-muted);">
+            Upload your Aadhaar, ST certificate, income slip, and bank details once (PDF/JPG up to 5 MB).
+          </p>
+        </div>
+
+        <div class="card">
+          <div style="font-weight: 800; font-size: 1.5rem; color: var(--primary); margin-bottom: 0.5rem;">05</div>
+          <h4>Apply in 1 Click</h4>
+          <p style="font-size: 0.88rem; color: var(--text-muted);">
+            Submit your application instantly. A permanent tracking ID is generated and recorded on portal.
+          </p>
+        </div>
+
+        <div class="card">
+          <div style="font-weight: 800; font-size: 1.5rem; color: var(--primary); margin-bottom: 0.5rem;">06</div>
+          <h4>Track 6-Stage Timeline</h4>
+          <p style="font-size: 0.88rem; color: var(--text-muted);">
+            Follow scrutiny updates, view admin feedback, and track DBT scholarship sanction right up to disbursement.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Statistics -->
+  <section style="padding: 3.5rem 0; background-color: #0f172a; color: #ffffff;">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 2rem;">
+        <span class="demo-notice-tag">Prototype & Demonstration Statistics</span>
+        <h3 style="color: #ffffff; margin-top: 0.5rem;">Platform Benchmark Metrics</h3>
+      </div>
+
+      <div class="grid grid-cols-4" style="text-align: center;">
+        <div style="padding: 1.5rem;">
+          <div style="font-size: 2.75rem; font-weight: 800; color: #34d399; margin-bottom: 0.25rem;">5</div>
+          <div style="font-size: 0.9rem; color: #94a3b8; font-weight: 600;">Scholarship Schemes</div>
+        </div>
+        <div style="padding: 1.5rem;">
+          <div style="font-size: 2.75rem; font-weight: 800; color: #fbbf24; margin-bottom: 0.25rem;">100+</div>
+          <div style="font-size: 0.9rem; color: #94a3b8; font-weight: 600;">Eligibility Rules Evaluated</div>
+        </div>
+        <div style="padding: 1.5rem;">
+          <div style="font-size: 2.75rem; font-weight: 800; color: #60a5fa; margin-bottom: 0.25rem;">1</div>
+          <div style="font-size: 0.9rem; color: #94a3b8; font-weight: 600;">Unified Student Portal</div>
+        </div>
+        <div style="padding: 1.5rem;">
+          <div style="font-size: 2.75rem; font-weight: 800; color: #a78bfa; margin-bottom: 0.25rem;">24/7</div>
+          <div style="font-size: 0.9rem; color: #94a3b8; font-weight: 600;">Application & Tracking Access</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About & Mission Section -->
+  <section style="padding: 4.5rem 0; background-color: #ffffff;" id="about">
+    <div class="container" style="max-width: 860px;">
+      <div style="text-align: center; margin-bottom: 2.5rem;">
+        <span class="badge badge-scheme" style="margin-bottom: 0.5rem;">About AdivasiSetu</span>
+        <h2>Bridging Educational Opportunity for India's Tribal Youth</h2>
+      </div>
+
+      <p style="font-size: 1.05rem; line-height: 1.7; color: var(--text-body); margin-bottom: 1.5rem;">
+        <strong>AdivasiSetu</strong> ("Bridge for Tribal Welfare") is built to ensure that no Scheduled Tribe student is deprived of higher education due to financial hardship or information asymmetry. By unifying the Ministry of Tribal Affairs’ five primary schemes into a single digital ecosystem, AdivasiSetu provides transparent access, automated rule checking, and real-time application tracking.
+      </p>
+
+      <div style="background-color: var(--bg-alt); border-radius: var(--radius-lg); padding: 1.75rem; margin-bottom: 2rem;">
+        <h4 style="margin-bottom: 0.5rem;">Our Mission Statement:</h4>
+        <p style="font-style: italic; color: var(--text-body); margin: 0;">
+          "To democratize scholarship access for all 705+ notified Scheduled Tribe communities across India by transforming a fragmented bureaucratic maze into a dignified, explainable, and accessible digital journey."
+        </p>
+      </div>
+
+      <!-- FAQ Accordion Preview -->
+      <h3 style="margin-bottom: 1.25rem;">Frequently Asked Questions</h3>
+      <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+        <details class="card" style="padding: 1rem 1.25rem; cursor: pointer;">
+          <summary style="font-weight: 700; color: var(--text-main);">What is AdivasiSetu?</summary>
+          <p style="font-size: 0.88rem; color: var(--text-muted); margin-top: 0.5rem;">
+            AdivasiSetu is an integrated scholarship portal designed specifically for Scheduled Tribe students, providing one-stop access to Pre-Matric, Post-Matric, Top Class, NFST, and National Overseas schemes.
+          </p>
+        </details>
+
+        <details class="card" style="padding: 1rem 1.25rem; cursor: pointer;">
+          <summary style="font-weight: 700; color: var(--text-main);">How does the eligibility matching engine work?</summary>
+          <p style="font-size: 0.88rem; color: var(--text-muted); margin-top: 0.5rem;">
+            Our rule engine checks 6 dimensions: Category (20%), Academic Level (20%), Family Income (20%), Qualifying Marks (15%), State Domicile (10%), and Document Readiness (15%) to yield an explainable match score.
+          </p>
+        </details>
+
+        <details class="card" style="padding: 1rem 1.25rem; cursor: pointer;">
+          <summary style="font-weight: 700; color: var(--text-main);">What documents are required for application?</summary>
+          <p style="font-size: 0.88rem; color: var(--text-muted); margin-top: 0.5rem;">
+            Standard mandatory documents include Aadhaar Card, ST Community Certificate, Family Income Certificate, Previous Exam Marksheet, Aadhaar-linked Bank Passbook, and Admission/Bonafide Certificate.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA Section -->
+  <section style="padding: 4.5rem 0; background: linear-gradient(135deg, var(--primary) 0%, #064e3b 100%); color: #ffffff; text-align: center;">
+    <div class="container" style="max-width: 720px;">
+      <h2 style="color: #ffffff; font-size: 2.25rem; margin-bottom: 1rem;">
+        Find the Scholarship That's Right for You
+      </h2>
+      <p style="color: #ccfbf1; font-size: 1.05rem; margin-bottom: 2rem;">
+        Join thousands of tribal students navigating their scholarship journey with confidence. Test your eligibility now.
+      </p>
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <a href="/eligibility.html" class="btn btn-accent btn-lg">
+          Check My Eligibility 🎯
+        </a>
+        <a href="/register.html" class="btn btn-outline btn-lg" style="background: rgba(255,255,255,0.15); border-color: #ffffff; color: #ffffff;">
+          Create Free Account
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-top">
+      <div class="footer-col">
+        <div style="display: flex; align-items: center; gap: 0.65rem; margin-bottom: 1rem;">
+          <div class="brand-icon" style="width: 2.2rem; height: 2.2rem; font-size: 1.1rem;">🏹</div>
+          <span style="font-size: 1.35rem; font-weight: 800; color: #ffffff;">AdivasiSetu</span>
+        </div>
+        <p style="font-size: 0.86rem; line-height: 1.6; color: #94a3b8;">
+          One Platform • Five Schemes • One Scholarship Journey.<br>
+          Dedicated scholarship enablement and application tracking platform for tribal students nationwide.
+        </p>
+        <div class="disclaimer-box">
+          <strong>Guidance Notice:</strong> Match scores and guidance provided by AdivasiSetu are platform-generated from published government criteria. Final scholarship awards are granted solely by the Ministry of Tribal Affairs and implementing state authorities.
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Scholarship Schemes</h4>
+        <ul class="footer-links">
+          <li><a href="/scholarships.html?scheme=Pre-Matric+Scholarship">Pre-Matric Scholarship</a></li>
+          <li><a href="/scholarships.html?scheme=Post-Matric+Scholarship">Post-Matric Scholarship</a></li>
+          <li><a href="/scholarships.html?scheme=Top+Class+Scholarship">Top Class Education</a></li>
+          <li><a href="/scholarships.html?scheme=NFST">NFST Fellowship</a></li>
+          <li><a href="/scholarships.html?scheme=National+Overseas+Scholarship">National Overseas (NOS)</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Platform Navigation</h4>
+        <ul class="footer-links">
+          <li><a href="/dashboard.html">Student Dashboard</a></li>
+          <li><a href="/eligibility.html">Eligibility Engine</a></li>
+          <li><a href="/documents.html">Document Center</a></li>
+          <li><a href="/applications.html">Application Tracker</a></li>
+          <li><a href="/admin.html">Admin Portal</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Tribal Welfare Support</h4>
+        <p style="font-size: 0.86rem; margin-bottom: 0.5rem;">
+          <strong>National Tribal Helpline (Toll-Free):</strong><br>
+          <span style="color: #34d399; font-weight: 700;">1800-11-7777</span>
+        </p>
+        <p style="font-size: 0.86rem; margin-bottom: 0.5rem;">
+          <strong>Email Desk:</strong><br>
+          <a href="mailto:support@adivasisetu.in" style="color: #94a3b8;">support@adivasisetu.in</a>
+        </p>
+        <p style="font-size: 0.82rem; color: #64748b;">
+          Operated in coordination with Ministry of Tribal Affairs (Demonstration Project).
+        </p>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <div>
+        © 2026 AdivasiSetu. All rights reserved. Prototype demonstration.
+      </div>
+      <div style="display: flex; gap: 1.5rem;">
+        <a href="#about" style="color: #94a3b8;">Privacy Policy</a>
+        <a href="#about" style="color: #94a3b8;">Terms of Service</a>
+        <a href="/admin.html" style="color: #94a3b8;">Admin Login</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="/js/main.js"></script>
+</body>
+</html>

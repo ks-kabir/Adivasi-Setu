@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Applications & Tracking | AdivasiSetu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/scholarships.css">
+</head>
+<body onload="initApplicationsPage()">
+
+  <!-- Top Bar -->
+  <div class="gov-top-bar">
+    <div class="container">
+      <div class="gov-emblem-text">
+        <span class="flag">🇮🇳</span>
+        <span>AdivasiSetu Student Application Management Center</span>
+      </div>
+      <div class="demo-notice-tag">Real-Time Status Tracking</div>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="site-navbar">
+    <div class="container navbar-inner">
+      <a href="/index.html" class="brand-logo">
+        <div class="brand-icon">🏹</div>
+        <div class="brand-text">
+          <h1>AdivasiSetu</h1>
+          <span>Tribal Scholarship Portal</span>
+        </div>
+      </a>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="/dashboard.html" class="nav-link">Dashboard</a></li>
+        <li><a href="/scholarships.html" class="nav-link">Find Scholarships</a></li>
+        <li><a href="/eligibility.html" class="nav-link">Eligibility Engine</a></li>
+        <li><a href="/documents.html" class="nav-link">Document Vault</a></li>
+        <li><a href="/applications.html" class="nav-link active">My Applications</a></li>
+      </ul>
+
+      <div class="nav-actions" id="nav-actions">
+        <!-- Injected dynamically -->
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <div class="page-header">
+    <div class="container">
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+        <div>
+          <span class="badge badge-scheme" style="margin-bottom: 0.5rem;">Application Lifecycle</span>
+          <h1>My Scholarship Applications</h1>
+          <p>Track your submitted schemes across the 6-stage verification timeline.</p>
+        </div>
+        <a href="/scholarships.html" class="btn btn-primary">
+          🔍 Find More Scholarships
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <main class="container" style="max-width: 960px; margin-bottom: 4rem;">
+    <!-- Filter Tabs (Section 13) -->
+    <div style="display: flex; gap: 0.5rem; border-bottom: 1px solid var(--border); margin-bottom: 2rem; overflow-x: auto;">
+      <button class="app-filter-tab btn btn-outline btn-sm active" data-status="All" style="border-radius: var(--radius-sm) var(--radius-sm) 0 0;">
+        All Applications
+      </button>
+      <button class="app-filter-tab btn btn-outline btn-sm" data-status="Submitted" style="border-radius: var(--radius-sm) var(--radius-sm) 0 0;">
+        Submitted
+      </button>
+      <button class="app-filter-tab btn btn-outline btn-sm" data-status="Under Review" style="border-radius: var(--radius-sm) var(--radius-sm) 0 0;">
+        Under Review
+      </button>
+      <button class="app-filter-tab btn btn-outline btn-sm" data-status="Approved" style="border-radius: var(--radius-sm) var(--radius-sm) 0 0;">
+        Approved
+      </button>
+      <button class="app-filter-tab btn btn-outline btn-sm" data-status="Rejected" style="border-radius: var(--radius-sm) var(--radius-sm) 0 0;">
+        Rejected
+      </button>
+    </div>
+
+    <!-- Application List Cards (Section 13) -->
+    <div id="applications-list-container">
+      <!-- Injected by applications.js -->
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-bottom">
+      <div>© 2026 AdivasiSetu • Applications Center</div>
+      <div style="display: flex; gap: 1rem;">
+        <a href="/dashboard.html" style="color: #94a3b8;">Dashboard</a>
+        <a href="/scholarships.html" style="color: #94a3b8;">Scholarships</a>
+        <a href="/index.html" style="color: #94a3b8;">Home</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script src="/js/applications.js"></script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student & Admin Login | AdivasiSetu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/auth.css">
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <div class="gov-top-bar">
+    <div class="container">
+      <div class="gov-emblem-text">
+        <span class="flag">🇮🇳</span>
+        <span>AdivasiSetu — Scholarship Portal for Tribal Students</span>
+      </div>
+      <div class="demo-notice-tag">⭐ Prototype Demonstration</div>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="site-navbar">
+    <div class="container navbar-inner">
+      <a href="/index.html" class="brand-logo">
+        <div class="brand-icon">🏹</div>
+        <div class="brand-text">
+          <h1>AdivasiSetu</h1>
+          <span>Tribal Scholarship Portal</span>
+        </div>
+      </a>
+      <div class="nav-actions">
+        <a href="/register.html" class="btn btn-outline btn-sm">Create New Account</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Login Main Content -->
+  <main class="auth-wrapper">
+    <div class="auth-card">
+      <div class="auth-header">
+        <h2>Sign In to AdivasiSetu</h2>
+        <p>Access your scholarships, documents, and application tracker</p>
+      </div>
+
+      <div class="auth-body">
+        <!-- Quick 1-Click Demo Login for Evaluators -->
+        <div class="demo-quick-login">
+          <p>⚡ Quick Test Logins (1-Click Instant Access)</p>
+          <div class="demo-btn-group">
+            <button type="button" class="btn btn-primary btn-sm" onclick="quickDemoLogin('student')">
+              👤 Demo Student
+            </button>
+            <button type="button" class="btn btn-outline-primary btn-sm" onclick="quickDemoLogin('admin')">
+              🛡️ Demo Admin
+            </button>
+          </div>
+        </div>
+
+        <!-- Error Alert -->
+        <div id="login-error" style="display: none; background-color: #fee2e2; border-left: 4px solid #ef4444; color: #991b1b; padding: 0.75rem 1rem; border-radius: var(--radius-sm); font-size: 0.86rem; margin-bottom: 1.25rem;"></div>
+
+        <!-- Login Form -->
+        <form onsubmit="handleLogin(event)">
+          <div class="form-group">
+            <label class="form-label" for="loginId">
+              Email Address or Registered Mobile <span class="required">*</span>
+            </label>
+            <input type="text" id="loginId" class="form-control" placeholder="e.g. student@adivasisetu.in or 9812345678" required>
+          </div>
+
+          <div class="form-group">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem;">
+              <label class="form-label" for="password" style="margin-bottom: 0;">
+                Password <span class="required">*</span>
+              </label>
+              <a href="#" style="font-size: 0.78rem; color: var(--primary);" onclick="showToast('For demo accounts, use Student@123 or Admin@123', 'info')">
+                Forgot password?
+              </a>
+            </div>
+            <input type="password" id="password" class="form-control" placeholder="••••••••" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-check">
+              <input type="checkbox" id="rememberMe" checked>
+              <span>Remember me on this browser</span>
+            </label>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-lg btn-block" style="margin-top: 1rem;">
+            Sign In to Account →
+          </button>
+        </form>
+
+        <div class="auth-footer">
+          Don't have an AdivasiSetu account yet?<br>
+          <a href="/register.html" style="font-weight: 700;">Register as a Tribal Student →</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="/js/main.js"></script>
+  <script src="/js/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JAGO Alerts & Notifications | AdivasiSetu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/scholarships.css">
+</head>
+<body onload="initNotificationsPage()">
+
+  <!-- Top Bar -->
+  <div class="gov-top-bar">
+    <div class="container">
+      <div class="gov-emblem-text">
+        <span class="flag">🇮🇳</span>
+        <span>AdivasiSetu JAGO Tribal Scholarship Awareness Center</span>
+      </div>
+      <div class="demo-notice-tag">Alerts & Directives</div>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="site-navbar">
+    <div class="container navbar-inner">
+      <a href="/index.html" class="brand-logo">
+        <div class="brand-icon">🏹</div>
+        <div class="brand-text">
+          <h1>AdivasiSetu</h1>
+          <span>Tribal Scholarship Portal</span>
+        </div>
+      </a>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="/dashboard.html" class="nav-link">Dashboard</a></li>
+        <li><a href="/scholarships.html" class="nav-link">Find Scholarships</a></li>
+        <li><a href="/eligibility.html" class="nav-link">Eligibility Engine</a></li>
+        <li><a href="/documents.html" class="nav-link">Document Vault</a></li>
+        <li><a href="/applications.html" class="nav-link">My Applications</a></li>
+      </ul>
+
+      <div class="nav-actions" id="nav-actions">
+        <!-- Injected dynamically -->
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <div class="page-header">
+    <div class="container">
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+        <div>
+          <span class="badge badge-scheme" style="margin-bottom: 0.5rem;">JAGO Awareness System</span>
+          <h1>Notifications & Awareness Center</h1>
+          <p>Real-time updates on deadlines, document scrutiny, and DBT sanctions.</p>
+        </div>
+        <button class="btn btn-outline btn-sm" onclick="markAllNotificationsRead()">
+          ✓ Mark All as Read
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <main class="container" style="max-width: 880px; margin-bottom: 4rem;">
+    <!-- Filter Tabs (Section 18) -->
+    <div style="display: flex; gap: 0.5rem; border-bottom: 1px solid var(--border); margin-bottom: 2rem; overflow-x: auto;">
+      <button class="notif-tab btn btn-outline btn-sm active" data-type="All">All Notifications</button>
+      <button class="notif-tab btn btn-outline btn-sm" data-type="Applications">Applications</button>
+      <button class="notif-tab btn btn-outline btn-sm" data-type="Documents">Documents</button>
+      <button class="notif-tab btn btn-outline btn-sm" data-type="Deadlines">Deadlines</button>
+      <button class="notif-tab btn btn-outline btn-sm" data-type="JAGO">JAGO Alerts</button>
+    </div>
+
+    <!-- Notification Feed Container -->
+    <div id="notifications-list-container">
+      <div style="text-align: center; padding: 3rem;"><p>Loading notifications...</p></div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-bottom">
+      <div>© 2026 AdivasiSetu • JAGO Notifications</div>
+      <div style="display: flex; gap: 1rem;">
+        <a href="/dashboard.html" style="color: #94a3b8;">Dashboard</a>
+        <a href="/scholarships.html" style="color: #94a3b8;">Scholarships</a>
+        <a href="/index.html" style="color: #94a3b8;">Home</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script>
+    let activeNotifType = 'All';
+
+    async function initNotificationsPage() {
+      const token = getToken();
+      if (!token) { window.location.href = '/login.html'; return; }
+
+      document.querySelectorAll('.notif-tab').forEach(tab => {
+        tab.addEventListener('click', () => {
+          document.querySelectorAll('.notif-tab').forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+          activeNotifType = tab.getAttribute('data-type');
+          fetchNotifications();
+        });
+      });
+
+      await fetchNotifications();
+    }
+
+    async function fetchNotifications() {
+      const container = document.getElementById('notifications-list-container');
+      const url = activeNotifType === 'All' ? '/notifications' : `/notifications?type=${activeNotifType}`;
+
+      try {
+        const res = await apiRequest(url);
+        if (res.success) {
+          renderNotifications(res.notifications || []);
+        }
+      } catch (e) {
+        container.innerHTML = `<div style="color: #ef4444; padding: 2rem;">Error: ${e.message}</div>`;
+      }
+    }
+
+    function renderNotifications(notifs) {
+      const container = document.getElementById('notifications-list-container');
+      if (notifs.length === 0) {
+        container.innerHTML = `
+          <div class="card" style="text-align: center; padding: 3rem;">
+            <span style="font-size: 2.5rem; display: block; margin-bottom: 0.5rem;">🔕</span>
+            <h4>No notifications in "${activeNotifType}"</h4>
+            <p style="color: var(--text-muted); font-size: 0.88rem;">You are up to date on all announcements.</p>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = notifs.map(n => `
+        <div class="card" style="margin-bottom: 1rem; border-left: 4px solid ${n.type === 'JAGO' ? 'var(--accent)' : 'var(--primary)'}; ${n.isRead ? 'opacity: 0.85;' : 'box-shadow: var(--shadow-sm);'}">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem;">
+            <div>
+              <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.35rem;">
+                <span class="badge ${n.type === 'JAGO' ? 'badge-jago' : 'badge-scheme'}">${n.badgeText || n.type}</span>
+                <span style="font-size: 0.75rem; color: var(--text-muted);">${formatDate(n.createdAt)}</span>
+                ${!n.isRead ? `<span style="width: 8px; height: 8px; border-radius: 50%; background: #ef4444; display: inline-block;"></span>` : ''}
+              </div>
+              <h4 style="font-size: 1.05rem; margin-bottom: 0.25rem;">
+                ${n.link ? `<a href="${n.link}">${n.title}</a>` : n.title}
+              </h4>
+              <p style="font-size: 0.88rem; color: var(--text-body); margin: 0;">${n.message}</p>
+            </div>
+            ${!n.isRead ? `
+              <button class="btn btn-outline btn-sm" onclick="markNotificationRead('${n._id}')" title="Mark Read">
+                ✓
+              </button>
+            ` : ''}
+          </div>
+        </div>
+      `).join('');
+    }
+
+    async function markNotificationRead(id) {
+      try {
+        await apiRequest(`/notifications/${id}/read`, { method: 'PATCH' });
+        await fetchNotifications();
+      } catch (e) {
+        showToast(e.message, 'error');
+      }
+    }
+
+    async function markAllNotificationsRead() {
+      try {
+        const res = await apiRequest('/notifications/mark-all-read', { method: 'POST' });
+        if (res.success) {
+          showToast('All notifications marked as read.', 'success');
+          await fetchNotifications();
+        }
+      } catch (e) {
+        showToast(e.message, 'error');
+      }
+    }
+  </script>
+</body>
+</html>

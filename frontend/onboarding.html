@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Profile Onboarding | AdivasiSetu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/auth.css">
+</head>
+<body onload="initOnboarding()">
+
+  <!-- Top Bar -->
+  <div class="gov-top-bar">
+    <div class="container">
+      <div class="gov-emblem-text">
+        <span class="flag">🇮🇳</span>
+        <span>AdivasiSetu Student Onboarding Wizard</span>
+      </div>
+      <div class="demo-notice-tag">Step-by-Step Profile Builder</div>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="site-navbar">
+    <div class="container navbar-inner">
+      <a href="/index.html" class="brand-logo">
+        <div class="brand-icon">🏹</div>
+        <div class="brand-text">
+          <h1>AdivasiSetu</h1>
+          <span>Tribal Scholarship Portal</span>
+        </div>
+      </a>
+      <div class="nav-actions">
+        <a href="/dashboard.html" class="btn btn-outline btn-sm">Skip to Dashboard →</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="onboarding-container">
+    <div class="onboarding-header">
+      <span class="badge badge-scheme" style="margin-bottom: 0.5rem;">5-Step Profile Setup</span>
+      <h1>Build Your Verified Student Profile</h1>
+      <p>Entering accurate details allows the AdivasiSetu Eligibility Algorithm to automatically match you with all eligible central and state schemes.</p>
+    </div>
+
+    <!-- Live Profile Completion Meter -->
+    <div class="completion-meter-card">
+      <div>
+        <span style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--text-muted); display: block;">
+          Profile Strength Meter
+        </span>
+        <strong id="completion-meter-text" style="font-size: 1.15rem; color: var(--primary);">25% Completed</strong>
+      </div>
+      <div class="completion-bar-wrap">
+        <div class="completion-bar">
+          <div class="completion-fill" id="completion-meter-fill" style="width: 25%;"></div>
+        </div>
+      </div>
+      <div style="font-size: 0.82rem; color: var(--text-muted);">
+        Target: <strong>100%</strong> for Instant 1-Click Application
+      </div>
+    </div>
+
+    <!-- Wizard Step Tabs -->
+    <div class="wizard-steps">
+      <div class="wizard-step-tab active" onclick="goToStep(1)">
+        <span class="wizard-step-num">Step 1</span>
+        <div class="wizard-step-title">Personal Details</div>
+      </div>
+      <div class="wizard-step-tab" onclick="goToStep(2)">
+        <span class="wizard-step-num">Step 2</span>
+        <div class="wizard-step-title">Academic Details</div>
+      </div>
+      <div class="wizard-step-tab" onclick="goToStep(3)">
+        <span class="wizard-step-num">Step 3</span>
+        <div class="wizard-step-title">Social & Category</div>
+      </div>
+      <div class="wizard-step-tab" onclick="goToStep(4)">
+        <span class="wizard-step-num">Step 4</span>
+        <div class="wizard-step-title">Financial Details</div>
+      </div>
+      <div class="wizard-step-tab" onclick="goToStep(5)">
+        <span class="wizard-step-num">Step 5</span>
+        <div class="wizard-step-title">Documents Readiness</div>
+      </div>
+    </div>
+
+    <!-- Wizard Form Cards -->
+    <div class="wizard-content-card">
+      <!-- Step 1: Personal Details -->
+      <div class="wizard-step-pane active" id="pane-step-1">
+        <div class="step-pane-header">
+          <h3>Step 1: Personal Identification</h3>
+          <p>Your primary demographic and contact coordinates.</p>
+        </div>
+
+        <div class="form-group col-2">
+          <div>
+            <label class="form-label">Full Name <span class="required">*</span></label>
+            <input type="text" id="onb-name" class="form-control" placeholder="e.g. Birsa Soren" oninput="updateCompletionMeter()">
+          </div>
+          <div>
+            <label class="form-label">Date of Birth</label>
+            <input type="date" id="onb-dob" class="form-control">
+          </div>
+        </div>
+
+        <div class="form-group col-2">
+          <div>
+            <label class="form-label">Gender</label>
+            <select id="onb-gender" class="form-control">
+              <option value="">Select Gender</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div>
+            <label class="form-label">Mobile Number</label>
+            <input type="tel" id="onb-mobile" class="form-control" placeholder="10-digit number">
+          </div>
+        </div>
+
+        <div class="form-group col-2">
+          <div>
+            <label class="form-label">Email Address</label>
+            <input type="email" id="onb-email" class="form-control" placeholder="student@example.com">
+          </div>
+          <div>
+            <label class="form-label">State of Domicile <span class="required">*</span></label>
+            <select id="onb-state" class="form-control" onchange="updateCompletionMeter()">
+              <option value="">Select State</option>
+              <option value="Jharkhand">Jharkhand</option>
+              <option value="Odisha">Odisha</option>
+              <option value="Madhya Pradesh">Madhya Pradesh</option>
+              <option value="Chhattisgarh">Chhattisgarh</option>
+              <option value="Maharashtra">Maharashtra</option>
+              <option value="Rajasthan">Rajasthan</option>
+              <option value="Gujarat">Gujarat</option>
+              <option value="Assam">Assam</option>
+              <option value="Meghalaya">Meghalaya</option>
+              <option value="Nagaland">Nagaland</option>
+              <option value="Mizoram">Mizoram</option>
+              <option value="Other">Other State</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group col-2">
+          <div>
+            <label class="form-label">District</label>
+            <input type="text" id="onb-district" class="form-control" placeholder="e.g. Ranchi / Mayurbhanj">
+          </div>
+          <div>
+            <label class="form-label">Village / Town</label>
+            <input type="text" id="onb-village" class="form-control" placeholder="e.g. Khunti Sub-district">
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2: Academic Details -->
+      <div class="wizard-step-pane" id="pane-step-2">
+        <div class="step-pane-header">
+          <h3>Step 2: Academic Details</h3>
+          <p>Used to verify course level and academic eligibility minimums.</p>
+        </div>
+
+        <div class="form-group col-2">
+          <div>
+            <label class="form-label">Current Education Level <span class="required">*</span></label>
+            <select id="onb-edu-level" class="form-control" onchange="updateCompletionMeter()">
+              <option value="">Select Level</option>
+              <option value="Class 9-10 (Pre-Matric)">Class 9-10 (Pre-Matric)</option>
+              <option value="Class 11-12 (Higher Secondary)">Class 11-12 (Higher Secondary)</option>
+              <option value="Diploma / Polytechnic">Diploma / Polytechnic</option>
+              <option value="Undergraduate (UG)">Undergraduate (UG Degree)</option>
+              <option value="Postgraduate (PG)">Postgraduate (PG Degree)</option>
+              <option value="M.Phil / Ph.D. / Research">M.Phil / Ph.D. / Research</option>
+              <option value="Overseas Studies (Master/PhD)">Overseas Studies (Master/PhD)</option>
+            </select>
+          </div>
+          <div>
+            <label class="form-label">Course / Branch Name <span class="required">*</span></label>
+            <input type="text" id="onb-course" class="form-control" placeholder="e.g. B.Tech Computer Engineering / B.A. History" oninput="updateCompletionMeter()">
+          </div>
+        </div>
+
+        <div class="form-group col-2">
+          <div>
+            <label class="form-label">College / Institution Name</label>
+            <input type="text" id="onb-institution" class="form-control" placeholder="e.g. National Institute of Technology (NIT)">
+          </div>
+          <div>
+            <label class="form-label">Year / Semester</label>
+            <input type="text" id="onb-year" class="form-control" placeholder="e.g. 3rd Year / Semester 5">
+          </div>
+        </div>
+
+        <div class="form-group col-2">
+          <div>
+            <label class="form-label">Previous Exam Percentage / CGPA <span class="required">*</span></label>
+            <input type="number" id="onb-percentage" class="form-control" placeholder="e.g. 82.5" min="0" max="100" step="0.1" oninput="updateCompletionMeter()">
+          </div>
+          <div>
+            <label class="form-label">Admission Year</label>
+            <input type="number" id="onb-adm-year" class="form-control" value="2024">
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3: Social & Category -->
+      <div class="wizard-step-pane" id="pane-step-3">
+        <div class="step-pane-header">
+          <h3>Step 3: Social & Tribal Category</h3>
+          <p>Authenticates your Scheduled Tribe community classification.</p>
+        </div>
+
+        <div class="form-group col-2">
+          <div>
+            <label class="form-label">Social Category</label>
+            <input type="text" class="form-control" value="Scheduled Tribe (ST)" readonly style="background-color: var(--bg-alt); font-weight: 700;">
+          </div>
+          <div>
+            <label class="form-label">Tribal Community Name <span class="required">*</span></label>
+            <input type="text" id="onb-community" class="form-control" placeholder="e.g. Santhal, Gond, Bhil, Munda, Oraon, Khasi" oninput="updateCompletionMeter()">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">ST Caste Certificate Number <span class="required">*</span></label>
+          <input type="text" id="onb-st-cert" class="form-control" placeholder="e.g. JH/ST/2022/94821" oninput="updateCompletionMeter()">
+          <div class="form-hint">Issued by Sub-Divisional Magistrate (SDM) / Tehsildar / District Magistrate.</div>
+        </div>
+      </div>
+
+      <!-- Step 4: Financial Details -->
+      <div class="wizard-step-pane" id="pane-step-4">
+        <div class="step-pane-header">
+          <h3>Step 4: Financial Details & Income</h3>
+          <p>Ensures compliance with income limits (₹2.5L to ₹8.0L depending on scheme).</p>
+        </div>
+
+        <div class="form-group col-2">
+          <div>
+            <label class="form-label">Annual Family Income (in INR) <span class="required">*</span></label>
+            <input type="number" id="onb-income" class="form-control" placeholder="e.g. 180000" min="0" step="5000" oninput="updateCompletionMeter()">
+            <div class="form-hint">Total annual income from all sources as per revenue certificate.</div>
+          </div>
+          <div>
+            <label class="form-label">Income Certificate Number</label>
+            <input type="text" id="onb-income-cert" class="form-control" placeholder="e.g. INC/JH/2026/049182">
+          </div>
+        </div>
+
+        <div class="form-group col-2">
+          <div>
+            <label class="form-label">BPL (Below Poverty Line) Status</label>
+            <select id="onb-bpl" class="form-control">
+              <option value="No">No</option>
+              <option value="Yes">Yes</option>
+            </select>
+          </div>
+          <div>
+            <label class="form-label">Primary Family Occupation</label>
+            <input type="text" id="onb-occupation" class="form-control" placeholder="e.g. Agriculture / Forest Produce">
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 5: Documents Readiness Checklist -->
+      <div class="wizard-step-pane" id="pane-step-5">
+        <div class="step-pane-header">
+          <h3>Step 5: Document Vault Readiness</h3>
+          <p>Verify that you have the mandatory documents ready before checking matching schemes.</p>
+        </div>
+
+        <div style="background-color: var(--primary-subtle); border-left: 4px solid var(--primary); padding: 1rem 1.25rem; border-radius: var(--radius-sm); margin-bottom: 1.5rem; font-size: 0.88rem; color: var(--primary-dark);">
+          💡 <strong>Tip:</strong> All documents will be securely archived in your Document Center. You can upload actual PDF or image files anytime!
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+          <label class="form-check" style="background: var(--bg-alt); padding: 0.75rem 1rem; border-radius: var(--radius-md);">
+            <input type="checkbox" checked>
+            <div>
+              <strong>1. Aadhaar Card (Identity Proof)</strong>
+              <div style="font-size: 0.78rem; color: var(--text-muted);">Aadhaar linked with mobile and active bank account</div>
+            </div>
+          </label>
+
+          <label class="form-check" style="background: var(--bg-alt); padding: 0.75rem 1rem; border-radius: var(--radius-md);">
+            <input type="checkbox" checked>
+            <div>
+              <strong>2. Scheduled Tribe (ST) Community Certificate</strong>
+              <div style="font-size: 0.78rem; color: var(--text-muted);">Issued by competent revenue authority</div>
+            </div>
+          </label>
+
+          <label class="form-check" style="background: var(--bg-alt); padding: 0.75rem 1rem; border-radius: var(--radius-md);">
+            <input type="checkbox" checked>
+            <div>
+              <strong>3. Annual Family Income Certificate</strong>
+              <div style="font-size: 0.78rem; color: var(--text-muted);">Valid for current financial year</div>
+            </div>
+          </label>
+
+          <label class="form-check" style="background: var(--bg-alt); padding: 0.75rem 1rem; border-radius: var(--radius-md);">
+            <input type="checkbox" checked>
+            <div>
+              <strong>4. Qualifying Marksheet / Grade Sheet</strong>
+              <div style="font-size: 0.78rem; color: var(--text-muted);">Class 10, 12, or previous semester marksheet</div>
+            </div>
+          </label>
+
+          <label class="form-check" style="background: var(--bg-alt); padding: 0.75rem 1rem; border-radius: var(--radius-md);">
+            <input type="checkbox" checked>
+            <div>
+              <strong>5. Bank Passbook Copy (Aadhaar Seeded for DBT)</strong>
+              <div style="font-size: 0.78rem; color: var(--text-muted);">Account in nationalized bank</div>
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <!-- Action Navigation Buttons -->
+      <div class="wizard-actions">
+        <button type="button" class="btn btn-outline" id="wizard-prev-btn" onclick="prevOnboardingStep()">
+          ← Back
+        </button>
+        <button type="button" class="btn btn-primary" id="wizard-next-btn" onclick="nextOnboardingStep()">
+          Save & Continue →
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <script src="/js/main.js"></script>
+  <script src="/js/auth.js"></script>
+</body>
+</html>

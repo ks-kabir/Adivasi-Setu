@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scholarship Discovery & Schemes | AdivasiSetu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/scholarships.css">
+</head>
+<body onload="initScholarshipsPage()">
+
+  <!-- Top Bar -->
+  <div class="gov-top-bar">
+    <div class="container">
+      <div class="gov-emblem-text">
+        <span class="flag">🇮🇳</span>
+        <span>AdivasiSetu Central & State Tribal Scholarship Directory</span>
+      </div>
+      <div class="demo-notice-tag">Scholarship Discovery Engine</div>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="site-navbar">
+    <div class="container navbar-inner">
+      <a href="/index.html" class="brand-logo">
+        <div class="brand-icon">🏹</div>
+        <div class="brand-text">
+          <h1>AdivasiSetu</h1>
+          <span>Tribal Scholarship Portal</span>
+        </div>
+      </a>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="/index.html" class="nav-link">Home</a></li>
+        <li><a href="/scholarships.html" class="nav-link active">Scholarships</a></li>
+        <li><a href="/eligibility.html" class="nav-link">Eligibility Engine</a></li>
+        <li><a href="/documents.html" class="nav-link">Document Vault</a></li>
+        <li><a href="/dashboard.html" class="nav-link">Dashboard</a></li>
+      </ul>
+
+      <div class="nav-actions" id="nav-actions">
+        <!-- Dynamically injected -->
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <div class="page-header">
+    <div class="container">
+      <span class="badge badge-scheme" style="margin-bottom: 0.5rem;">Verified Government Schemes</span>
+      <h1>Discover Tribal Welfare Scholarships</h1>
+      <p>Search, filter, and review active schemes spanning secondary school to doctoral study grants.</p>
+    </div>
+  </div>
+
+  <!-- Discovery Main Layout -->
+  <main class="container">
+    <!-- Mobile Filter Toggle Button -->
+    <button type="button" class="mobile-filter-toggle-btn" onclick="toggleMobileFilters()">
+      <span>⚡ Filter Scholarships</span>
+      <span id="mobile-filter-arrow">▼</span>
+    </button>
+
+    <div class="discovery-layout">
+      <!-- Left Filter Sidebar (Section 8) -->
+      <aside class="filter-sidebar">
+        <div class="filter-header">
+          <h3>Filters</h3>
+          <button class="reset-filter-btn" onclick="resetAllFilters()">Reset All</button>
+        </div>
+
+        <!-- Scheme / Category Filter -->
+        <div class="filter-group">
+          <label class="filter-title" for="filter-scheme">Scholarship Scheme</label>
+          <select id="filter-scheme" class="form-control">
+            <option value="All">All 5 Schemes</option>
+            <option value="Pre-Matric Scholarship">Pre-Matric Scholarship</option>
+            <option value="Post-Matric Scholarship">Post-Matric Scholarship</option>
+            <option value="Top Class Scholarship">Top Class Scholarship</option>
+            <option value="NFST">NFST Fellowship</option>
+            <option value="National Overseas Scholarship">National Overseas (NOS)</option>
+          </select>
+        </div>
+
+        <!-- Education Level Filter -->
+        <div class="filter-group">
+          <label class="filter-title" for="filter-edu">Education Level</label>
+          <select id="filter-edu" class="form-control">
+            <option value="All">All Education Levels</option>
+            <option value="Class 9-10">Class 9-10 (Pre-Matric)</option>
+            <option value="Class 11-12">Class 11-12 (Higher Secondary)</option>
+            <option value="Diploma">Diploma / Polytechnic</option>
+            <option value="Undergraduate">Undergraduate (UG)</option>
+            <option value="Postgraduate">Postgraduate (PG)</option>
+            <option value="Ph.D.">M.Phil / Ph.D. / Research</option>
+            <option value="Overseas">Overseas Studies (Abroad)</option>
+          </select>
+        </div>
+
+        <!-- Family Income Ceiling Filter -->
+        <div class="filter-group">
+          <label class="filter-title" for="filter-income">Max Family Income Cap</label>
+          <select id="filter-income" class="form-control">
+            <option value="">Any Income Limit</option>
+            <option value="250000">Up to ₹2.5 Lakh / year</option>
+            <option value="600000">Up to ₹6.0 Lakh / year</option>
+            <option value="800000">Up to ₹8.0 Lakh / year</option>
+          </select>
+        </div>
+
+        <!-- State Domicile Filter -->
+        <div class="filter-group">
+          <label class="filter-title" for="filter-state">State Coverage</label>
+          <select id="filter-state" class="form-control">
+            <option value="All">All India Coverage</option>
+            <option value="Jharkhand">Jharkhand</option>
+            <option value="Odisha">Odisha</option>
+            <option value="Madhya Pradesh">Madhya Pradesh</option>
+            <option value="Chhattisgarh">Chhattisgarh</option>
+            <option value="Maharashtra">Maharashtra</option>
+            <option value="Rajasthan">Rajasthan</option>
+            <option value="Gujarat">Gujarat</option>
+            <option value="Assam">Assam</option>
+          </select>
+        </div>
+
+        <!-- Sort Option -->
+        <div class="filter-group">
+          <label class="filter-title" for="filter-sort">Sort By</label>
+          <select id="filter-sort" class="form-control">
+            <option value="deadline-soon">Closing Soonest</option>
+            <option value="match">Highest Platform Match</option>
+            <option value="amount-high">Benefit Amount: High to Low</option>
+            <option value="popular">Most Popular</option>
+          </select>
+        </div>
+
+        <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border);">
+          <a href="/eligibility.html" class="btn btn-outline-primary btn-sm btn-block">
+            🎯 Run Eligibility Engine
+          </a>
+        </div>
+      </aside>
+
+      <!-- Right Main Scholarship Content -->
+      <section>
+        <!-- Search Bar & Controls -->
+        <div class="search-controls-bar">
+          <div class="search-input-box">
+            <span class="search-icon-inside">🔍</span>
+            <input type="text" id="search-query" placeholder="Search by scheme name, course, IIT/NIT, or keywords...">
+          </div>
+          <div id="scholarships-count" style="font-weight: 700; color: var(--text-muted); font-size: 0.9rem;">
+            Loading schemes...
+          </div>
+        </div>
+
+        <!-- Active Filter Tags Bar -->
+        <div class="active-tags-bar" id="active-tags-bar"></div>
+
+        <!-- Scholarship Cards Grid (Section 8) -->
+        <div class="scholarship-grid" id="scholarships-grid">
+          <!-- Dynamically populated by scholarships.js -->
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-bottom">
+      <div>© 2026 AdivasiSetu • Scholarship Directory</div>
+      <div style="display: flex; gap: 1rem;">
+        <a href="/eligibility.html" style="color: #94a3b8;">Eligibility Engine</a>
+        <a href="/dashboard.html" style="color: #94a3b8;">Dashboard</a>
+        <a href="/index.html" style="color: #94a3b8;">Home</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script src="/js/scholarships.js"></script>
+</body>
+</html>

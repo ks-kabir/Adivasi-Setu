@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Welfare Portal & Scrutiny Desk | AdivasiSetu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/admin.css">
+</head>
+<body onload="initAdminPortal()">
+
+  <!-- Top Bar -->
+  <div class="gov-top-bar">
+    <div class="container">
+      <div class="gov-emblem-text">
+        <span class="flag">🇮🇳</span>
+        <span>AdivasiSetu Administrator & Scrutiny Officer Command Center</span>
+      </div>
+      <div class="demo-notice-tag">Welfare Board Admin Access</div>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="site-navbar">
+    <div class="container navbar-inner">
+      <a href="/admin.html" class="brand-logo">
+        <div class="brand-icon" style="background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);">🛡️</div>
+        <div class="brand-text">
+          <h1>AdivasiSetu Admin</h1>
+          <span>Tribal Welfare Scrutiny Portal</span>
+        </div>
+      </a>
+
+      <div class="nav-actions" id="nav-actions">
+        <!-- Dynamically injected -->
+      </div>
+    </div>
+  </nav>
+
+  <!-- Admin Main Content -->
+  <main class="admin-wrapper container">
+    <div class="admin-header">
+      <div>
+        <span class="badge" style="background: #e2e8f0; color: #1e293b; margin-bottom: 0.35rem;">Administrative Console</span>
+        <h1>Tribal Welfare Scrutiny & Scheme Management</h1>
+        <p>Manage the 5 scholarship schemes, verify submitted applications, and track welfare disbursement analytics.</p>
+      </div>
+      <div style="display: flex; gap: 0.75rem;">
+        <button class="btn btn-primary btn-sm" onclick="openAddScholarshipModal()">
+          ➕ Add New Scheme
+        </button>
+        <a href="/index.html" class="btn btn-outline btn-sm">
+          👁️ View Student Website
+        </a>
+      </div>
+    </div>
+
+    <!-- Admin Top Statistics Cards (Section 22) -->
+    <div class="grid grid-cols-4" style="margin-bottom: 2rem;">
+      <div class="card" style="border-left: 4px solid var(--primary);">
+        <span style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted);">REGISTERED STUDENTS</span>
+        <h2 style="font-size: 2rem; margin: 0.25rem 0;" id="admin-stat-students">--</h2>
+        <span style="font-size: 0.78rem; color: var(--text-muted);">Aadhaar & ST Verified</span>
+      </div>
+
+      <div class="card" style="border-left: 4px solid var(--accent);">
+        <span style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted);">SCHOLARSHIP SCHEMES</span>
+        <h2 style="font-size: 2rem; margin: 0.25rem 0;" id="admin-stat-scholarships">5</h2>
+        <span style="font-size: 0.78rem; color: var(--text-muted);">Centrally & State Sponsored</span>
+      </div>
+
+      <div class="card" style="border-left: 4px solid var(--secondary);">
+        <span style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted);">TOTAL APPLICATIONS</span>
+        <h2 style="font-size: 2rem; margin: 0.25rem 0;" id="admin-stat-applications">--</h2>
+        <span style="font-size: 0.78rem; color: var(--text-muted);">Filed across 5 schemes</span>
+      </div>
+
+      <div class="card" style="border-left: 4px solid #ef4444;">
+        <span style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted);">PENDING VERIFICATION</span>
+        <h2 style="font-size: 2rem; margin: 0.25rem 0; color: #b91c1c;" id="admin-stat-pending">--</h2>
+        <span style="font-size: 0.78rem; color: #b91c1c; font-weight: 600;">Requires Officer Action</span>
+      </div>
+    </div>
+
+    <!-- Admin Navigation Tabs -->
+    <div class="admin-nav-tabs">
+      <button class="admin-nav-tab active" data-target="admin-pane-applications">
+        📝 Application Management & Review
+      </button>
+      <button class="admin-nav-tab" data-target="admin-pane-scholarships">
+        🏛️ Scholarship Schemes (CRUD)
+      </button>
+      <button class="admin-nav-tab" data-target="admin-pane-analytics">
+        📊 Disbursement & State Analytics
+      </button>
+    </div>
+
+    <!-- Tab Pane 1: Application Management (Section 25) -->
+    <div class="admin-tab-pane" id="admin-pane-applications">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+        <h3>Submitted Student Applications</h3>
+        <span style="font-size: 0.85rem; color: var(--text-muted);">Click "Review / Update" to verify certificates or issue sanction approval.</span>
+      </div>
+
+      <div class="table-responsive">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Application ID</th>
+              <th>Student Name & Domicile</th>
+              <th>Scholarship Scheme</th>
+              <th>Match Score</th>
+              <th>Current Status</th>
+              <th>Scrutiny Action</th>
+            </tr>
+          </thead>
+          <tbody id="admin-applications-table-body">
+            <!-- Injected by admin.js -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Tab Pane 2: Scholarship Schemes (Section 23 & 24) -->
+    <div class="admin-tab-pane" id="admin-pane-scholarships" style="display: none;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+        <h3>Configured Scholarship Schemes</h3>
+        <button class="btn btn-primary btn-sm" onclick="openAddScholarshipModal()">
+          ➕ Add New Scheme
+        </button>
+      </div>
+
+      <div class="table-responsive">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Scheme Name</th>
+              <th>Category</th>
+              <th>Award Amount</th>
+              <th>Deadline</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="admin-scholarships-table-body">
+            <!-- Injected by admin.js -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Tab Pane 3: Analytics (Section 26) -->
+    <div class="admin-tab-pane" id="admin-pane-analytics" style="display: none;">
+      <div class="analytics-grid">
+        <!-- 1. Applications by Scheme -->
+        <div class="analytics-card">
+          <h4>
+            <span>Applications by Scholarship Scheme</span>
+            <span class="badge badge-scheme">5 Schemes</span>
+          </h4>
+          <div class="bar-chart-row" id="analytics-schemes-box">
+            <!-- Injected by admin.js -->
+          </div>
+        </div>
+
+        <!-- 2. Application Status Breakdown -->
+        <div class="analytics-card">
+          <h4>
+            <span>Application Status Distribution</span>
+            <span class="badge" style="background: #e2e8f0; color: #1e293b;">Scrutiny Pipeline</span>
+          </h4>
+          <div class="bar-chart-row" id="analytics-status-box">
+            <!-- Injected by admin.js -->
+          </div>
+        </div>
+      </div>
+
+      <!-- State Level Representation Card -->
+      <div class="card" style="padding: 1.5rem; margin-top: 1.5rem;">
+        <h4 style="margin-bottom: 1rem;">Geographic Distribution of ST Applicants (By State)</h4>
+        <div class="grid grid-cols-4" style="text-align: center;">
+          <div style="background: var(--bg-alt); padding: 1rem; border-radius: var(--radius-md);">
+            <strong style="font-size: 1.25rem; color: var(--primary);">Jharkhand</strong>
+            <div style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.25rem;">42% of applicants</div>
+          </div>
+          <div style="background: var(--bg-alt); padding: 1rem; border-radius: var(--radius-md);">
+            <strong style="font-size: 1.25rem; color: var(--primary);">Odisha</strong>
+            <div style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.25rem;">28% of applicants</div>
+          </div>
+          <div style="background: var(--bg-alt); padding: 1rem; border-radius: var(--radius-md);">
+            <strong style="font-size: 1.25rem; color: var(--primary);">Madhya Pradesh</strong>
+            <div style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.25rem;">18% of applicants</div>
+          </div>
+          <div style="background: var(--bg-alt); padding: 1rem; border-radius: var(--radius-md);">
+            <strong style="font-size: 1.25rem; color: var(--primary);">Other States</strong>
+            <div style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.25rem;">12% of applicants</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Review Application Modal (Section 25) -->
+  <div class="modal-overlay" id="admin-review-modal">
+    <div class="modal-content" style="max-width: 680px;">
+      <div class="modal-header">
+        <h3 style="font-size: 1.2rem; margin: 0;">Application Scrutiny & Sanction Review</h3>
+        <button class="modal-close-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div style="background: var(--bg-alt); padding: 1rem; border-radius: var(--radius-md); margin-bottom: 1.25rem; font-size: 0.88rem;">
+          <div style="display: flex; justify-content: space-between; margin-bottom: 0.35rem;">
+            <span>Application ID: <strong id="rev-app-id">--</strong></span>
+            <span>Family Income: <strong id="rev-income">--</strong></span>
+          </div>
+          <div>Student: <strong id="rev-student-name">--</strong> (<span id="rev-student-meta">--</span>)</div>
+          <div style="margin-top: 0.25rem;">Scheme: <strong id="rev-sch-name" style="color: var(--primary);">--</strong></div>
+        </div>
+
+        <div style="margin-bottom: 1.25rem;">
+          <label class="form-label">Submitted Verification Documents:</label>
+          <div id="rev-docs-list"></div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="rev-status-select">Update Application Status <span class="required">*</span></label>
+          <select id="rev-status-select" class="form-control" style="font-weight: 700;">
+            <option value="Under Review">Under Review (Desk Scrutiny Ongoing)</option>
+            <option value="Approved">Approved (Sanction Order & DBT Disbursed)</option>
+            <option value="Rejected">Rejected (Ineligible / Discrepancy)</option>
+            <option value="Submitted">Submitted (Queued)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="rev-remarks-input">Official Welfare Desk Remarks / Sanction Notes</label>
+          <textarea id="rev-remarks-input" class="form-control" rows="3" placeholder="Enter remarks that will be displayed to the student in their Application Tracker..."></textarea>
+          <div class="form-hint">E.g., "Full sanction approved. DBT credited via PFMS." or "Missing current income certificate."</div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline btn-sm" data-close-modal>Cancel</button>
+        <button type="button" class="btn btn-primary btn-sm" id="confirm-review-btn" onclick="submitApplicationStatusUpdate()">
+          Save Decision & Notify Student ✍️
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add/Edit Scholarship Modal (Section 24) -->
+  <div class="modal-overlay" id="admin-scholarship-modal">
+    <div class="modal-content" style="max-width: 680px;">
+      <div class="modal-header">
+        <h3 id="modal-sch-title-text" style="font-size: 1.2rem; margin: 0;">Add / Edit Scholarship Scheme</h3>
+        <button class="modal-close-btn">&times;</button>
+      </div>
+      <form id="scholarship-form" onsubmit="handleSaveScholarship(event)">
+        <div class="modal-body">
+          <input type="hidden" id="modal-sch-id">
+
+          <div class="form-group">
+            <label class="form-label">Scholarship Scheme Name <span class="required">*</span></label>
+            <input type="text" id="modal-sch-name" class="form-control" placeholder="e.g. Post-Matric Scholarship for ST Students" required>
+          </div>
+
+          <div class="form-group col-2">
+            <div>
+              <label class="form-label">Scheme Category <span class="required">*</span></label>
+              <select id="modal-sch-scheme" class="form-control" required>
+                <option value="Pre-Matric Scholarship">Pre-Matric Scholarship</option>
+                <option value="Post-Matric Scholarship">Post-Matric Scholarship</option>
+                <option value="Top Class Scholarship">Top Class Scholarship</option>
+                <option value="NFST">NFST</option>
+                <option value="National Overseas Scholarship">National Overseas Scholarship</option>
+              </select>
+            </div>
+            <div>
+              <label class="form-label">Provider Name <span class="required">*</span></label>
+              <input type="text" id="modal-sch-provider" class="form-control" value="Ministry of Tribal Affairs, Government of India" required>
+            </div>
+          </div>
+
+          <div class="form-group col-2">
+            <div>
+              <label class="form-label">Display Amount / Benefit <span class="required">*</span></label>
+              <input type="text" id="modal-sch-amount" class="form-control" placeholder="e.g. Full Tuition Fee + ₹13,500" required>
+            </div>
+            <div>
+              <label class="form-label">Annual Value (in INR)</label>
+              <input type="number" id="modal-sch-amount-year" class="form-control" placeholder="e.g. 38000">
+            </div>
+          </div>
+
+          <div class="form-group col-2">
+            <div>
+              <label class="form-label">Max Family Income Cap (INR)</label>
+              <input type="number" id="modal-sch-income" class="form-control" value="250000">
+            </div>
+            <div>
+              <label class="form-label">Min Qualifying Marks (%)</label>
+              <input type="number" id="modal-sch-marks" class="form-control" value="50">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Scheme Overview & Description <span class="required">*</span></label>
+            <textarea id="modal-sch-desc" class="form-control" rows="3" required></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline btn-sm" data-close-modal>Cancel</button>
+          <button type="submit" class="btn btn-primary btn-sm">Save Scheme 💾</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-bottom">
+      <div>© 2026 AdivasiSetu • Administrator Portal</div>
+      <div style="display: flex; gap: 1rem;">
+        <a href="/index.html" style="color: #94a3b8;">Student View</a>
+        <a href="#" onclick="logoutUser()" style="color: #ef4444;">Sign Out</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script src="/js/admin.js"></script>
+</body>
+</html>

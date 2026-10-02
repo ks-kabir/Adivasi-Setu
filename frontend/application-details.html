@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Application Tracker & Detailed Journey | AdivasiSetu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/scholarships.css">
+</head>
+<body onload="loadApplicationTracker()">
+
+  <!-- Top Bar -->
+  <div class="gov-top-bar">
+    <div class="container">
+      <div class="gov-emblem-text">
+        <span class="flag">🇮🇳</span>
+        <span>AdivasiSetu Live Application Journey Tracker</span>
+      </div>
+      <div class="demo-notice-tag">6-Stage Official Pipeline</div>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="site-navbar">
+    <div class="container navbar-inner">
+      <a href="/index.html" class="brand-logo">
+        <div class="brand-icon">🏹</div>
+        <div class="brand-text">
+          <h1>AdivasiSetu</h1>
+          <span>Tribal Scholarship Portal</span>
+        </div>
+      </a>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="/dashboard.html" class="nav-link">Dashboard</a></li>
+        <li><a href="/scholarships.html" class="nav-link">Find Scholarships</a></li>
+        <li><a href="/documents.html" class="nav-link">Document Vault</a></li>
+        <li><a href="/applications.html" class="nav-link active">My Applications</a></li>
+      </ul>
+
+      <div class="nav-actions" id="nav-actions">
+        <!-- Injected dynamically -->
+      </div>
+    </div>
+  </nav>
+
+  <!-- Tracker Header -->
+  <header class="page-header">
+    <div class="container">
+      <a href="/applications.html" style="display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.88rem; font-weight: 600; margin-bottom: 0.75rem;">
+        ← Back to All Applications
+      </a>
+
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem;">
+        <div>
+          <span style="font-size: 0.82rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase;">Tracking Application:</span>
+          <h1 id="app-sch-name" style="font-size: 1.85rem; margin: 0.25rem 0;">Scholarship Scheme</h1>
+          <div style="font-size: 0.88rem; color: var(--text-muted);" id="app-provider">Ministry of Tribal Affairs</div>
+        </div>
+        <div style="text-align: right;">
+          <div style="font-size: 0.78rem; color: var(--text-muted);">Application Number:</div>
+          <strong id="app-id-display" style="font-size: 1.25rem; color: var(--primary);">AS-2026-ST-XXXXX</strong>
+          <div style="margin-top: 0.4rem;">
+            <span class="badge badge-submitted" id="app-status-badge" style="font-size: 0.85rem; padding: 0.35rem 0.85rem;">Status</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Tracker Details Main Grid -->
+  <main class="container" style="margin-bottom: 4rem;">
+    <div class="details-layout">
+      <!-- Left Column: 6-Stage Timeline (Section 15) -->
+      <div>
+        <div class="card" style="padding: 2.25rem; margin-bottom: 1.75rem;">
+          <div style="margin-bottom: 1.75rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border);">
+            <h3 style="font-size: 1.25rem; margin-bottom: 0.25rem;">Live 6-Stage Journey Tracker</h3>
+            <p style="font-size: 0.86rem; color: var(--text-muted); margin: 0;">
+              Stages update automatically as desk officers scrutiny your certificates.
+            </p>
+          </div>
+
+          <!-- 6-Stage Timeline Container -->
+          <div id="tracker-timeline-container" style="padding-left: 0.5rem;">
+            <!-- Injected by applications.js -->
+          </div>
+        </div>
+
+        <!-- Official Welfare Desk Communication (Section 16) -->
+        <div class="card">
+          <h3 style="font-size: 1.15rem; margin-bottom: 0.75rem;">Official Welfare Desk Communication</h3>
+          <div id="app-admin-remarks-box">
+            <!-- Injected by applications.js -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Student Dossier & Document Snapshot -->
+      <div>
+        <!-- Student Information Card -->
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h4 style="font-size: 1.05rem; margin-bottom: 1rem;">Student Dossier</h4>
+          <div style="font-size: 0.86rem; display: flex; flex-direction: column; gap: 0.65rem;">
+            <div>
+              <span style="color: var(--text-muted); display: block; font-size: 0.78rem;">Full Name:</span>
+              <strong id="app-student-name">Student</strong>
+            </div>
+            <div>
+              <span style="color: var(--text-muted); display: block; font-size: 0.78rem;">Student ID:</span>
+              <strong id="app-student-id">STU-000000</strong>
+            </div>
+            <div>
+              <span style="color: var(--text-muted); display: block; font-size: 0.78rem;">Course / Branch:</span>
+              <strong id="app-course">Course</strong>
+            </div>
+            <div>
+              <span style="color: var(--text-muted); display: block; font-size: 0.78rem;">Institution:</span>
+              <strong id="app-institute">Institution</strong>
+            </div>
+            <div>
+              <span style="color: var(--text-muted); display: block; font-size: 0.78rem;">Submission Date:</span>
+              <strong id="app-submitted-date">Date</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- Attached Documents Snapshot Card -->
+        <div class="card">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+            <h4 style="font-size: 1.05rem; margin: 0;">Attached Documents</h4>
+            <a href="/documents.html" style="font-size: 0.8rem; font-weight: 600;">Vault 📁</a>
+          </div>
+          <div id="app-documents-container">
+            <!-- Injected by applications.js -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-bottom">
+      <div>© 2026 AdivasiSetu • Application Tracker</div>
+      <div style="display: flex; gap: 1rem;">
+        <a href="/applications.html" style="color: #94a3b8;">My Applications</a>
+        <a href="/dashboard.html" style="color: #94a3b8;">Dashboard</a>
+        <a href="/index.html" style="color: #94a3b8;">Home</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script src="/js/applications.js"></script>
+</body>
+</html>
