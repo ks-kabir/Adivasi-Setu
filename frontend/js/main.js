@@ -47,16 +47,34 @@ async function apiRequest(endpoint, options = {}) {
   }
 
   try {
-    const res = await fetch(`${API_BASE}${endpoint}`, {
-      ...options,
-      headers
-    });
-
-    const data = await res.json();
-    if (!res.ok) {
-      throw new Error(data.message || 'An error occurred while processing your request.');
+    const isLocalPreview = ['localhost', '127.0.0.1'].includes(window.location.hostname)
+      && window.location.port !== '5000';
+    const urls = [`${API_BASE}${endpoint}`];
+    if (isLocalPreview) {
+      urls.push(`http://localhost:5000/api${endpoint}`);
     }
-    return data;
+
+    for (const [index, url] of urls.entries()) {
+      let res;
+      try {
+        res = await fetch(url, { ...options, headers });
+      } catch (fetchError) {
+        if (index === 0 && urls.length > 1) continue;
+        throw fetchError;
+      }
+
+      const contentType = res.headers.get('content-type') || '';
+      if (!contentType.includes('json')) {
+        if (index === 0 && urls.length > 1) continue;
+        throw new Error('The API returned a non-JSON response. Start the backend with `npm start` and open the app at http://localhost:5000.');
+      }
+
+      const data = await res.json();
+      if (!res.ok) {
+        throw new Error(data.message || 'An error occurred while processing your request.');
+      }
+      return data;
+    }
   } catch (err) {
     console.error(`API Error [${endpoint}]:`, err.message);
     throw err;
