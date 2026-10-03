@@ -3,7 +3,7 @@
  * Tagline: One Platform • Five Schemes • One Scholarship Journey
  */
 
-const API_BASE = '/api';
+const API_BASE = window.ADIVASISETU_API_BASE || '/api';
 
 function appPageUrl(path) {
   return `./${String(path).replace(/^\/+/, '')}`;
@@ -66,7 +66,10 @@ async function apiRequest(endpoint, options = {}) {
       const contentType = res.headers.get('content-type') || '';
       if (!contentType.includes('json')) {
         if (index === 0 && urls.length > 1) continue;
-        throw new Error('The API returned a non-JSON response. Start the backend with `npm start` and open the app at http://localhost:5000.');
+        const message = window.location.hostname.endsWith('.github.io')
+          ? 'Eligibility is unavailable on this GitHub Pages site because no backend API is configured. Set window.ADIVASISETU_API_BASE to your deployed API URL.'
+          : 'The API returned a non-JSON response. Start the backend with `npm start` and open the app at http://localhost:5000.';
+        throw new Error(message);
       }
 
       const data = await res.json();
