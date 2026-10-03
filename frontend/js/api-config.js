@@ -1,0 +1,1 @@
+window.ADIVASISETU_API_BASE = '';

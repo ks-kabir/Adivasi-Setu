@@ -3,7 +3,7 @@
  * Tagline: One Platform • Five Schemes • One Scholarship Journey
  */
 
-const API_BASE = window.ADIVASISETU_API_BASE || '/api';
+const API_BASE = (window.ADIVASISETU_API_BASE || '/api').replace(/\/+$/, '');
 
 function appPageUrl(path) {
   return `./${String(path).replace(/^\/+/, '')}`;

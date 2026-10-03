@@ -123,6 +123,18 @@ For seamless evaluation, quick demo buttons are embedded on the login page:
    - Student Dashboard: [http://localhost:5000/dashboard.html](http://localhost:5000/dashboard.html)
    - Admin Portal: [http://localhost:5000/admin.html](http://localhost:5000/admin.html)
 
+### Deploying the GitHub Pages Frontend
+
+GitHub Pages serves static files only. Deploy the API separately with Render and use MongoDB Atlas for the remote database.
+
+1. Create an Atlas cluster and database user. Allow the Render service's outbound IP addresses in Atlas Network Access.
+2. In Render, create a Blueprint from this repository. Render reads `render.yaml`; provide the Atlas connection string as the `MONGODB_URI` environment variable. The blueprint generates `JWT_SECRET`.
+3. After deployment, verify `https://<render-service>.onrender.com/api/health` returns JSON.
+4. Set `window.ADIVASISETU_API_BASE` in `frontend/js/api-config.js` to `https://<render-service>.onrender.com/api`.
+5. In GitHub repository settings, set Pages' build source to **GitHub Actions**. The included workflow publishes `frontend/` when frontend files are pushed to `main`.
+
+Keep database credentials in Render's environment settings. Do not commit the Atlas connection string.
+
 ---
 
 ## 📁 Project Directory Structure
