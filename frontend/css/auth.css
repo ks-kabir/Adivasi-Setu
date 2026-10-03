@@ -1,6 +1,4 @@
-/* ==========================================================================
-   ADIVASISETU - AUTHENTICATION & ONBOARDING CSS
-   ========================================================================== */
+/* ADIVASISETU - AUTHENTICATION & ONBOARDING CSS */
 
 .auth-wrapper {
   min-height: calc(100vh - 4.25rem - 120px);
@@ -148,9 +146,7 @@
   color: var(--text-muted);
 }
 
-/* ==========================================================================
-   ONBOARDING WIZARD STYLES
-   ========================================================================== */
+/* ONBOARDING WIZARD STYLES */
 
 .onboarding-container {
   max-width: 820px;
@@ -309,9 +305,7 @@
   border-top: 1px solid var(--border);
 }
 
-/* ==========================================================================
-   MOBILE RESPONSIVENESS FOR AUTH & ONBOARDING
-   ========================================================================== */
+/* MOBILE RESPONSIVENESS FOR AUTH & ONBOARDING */
 
 @media (max-width: 640px) {
   .auth-wrapper {

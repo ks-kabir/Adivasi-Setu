@@ -1,8 +1,3 @@
-/**
- * ADIVASISETU - DOCUMENT CENTER JS
- * Section 12: 6 Categories, Upload (<=5MB), Rejection handling & verification
- */
-
 let myDocuments = [];
 let standardCategories = [];
 

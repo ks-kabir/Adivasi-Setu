@@ -1,6 +1,4 @@
-/* ==========================================================================
-   ADIVASISETU - STUDENT DASHBOARD CSS
-   ========================================================================== */
+/* ADIVASISETU - STUDENT DASHBOARD CSS */
 
 .dashboard-wrapper {
   padding: 2.5rem 0 4rem;
@@ -300,9 +298,7 @@
   white-space: nowrap;
 }
 
-/* ==========================================================================
-   MOBILE RESPONSIVENESS FOR STUDENT DASHBOARD
-   ========================================================================== */
+/* MOBILE RESPONSIVENESS FOR STUDENT DASHBOARD */
 
 @media (max-width: 768px) {
   .dashboard-wrapper {

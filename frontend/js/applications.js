@@ -1,8 +1,3 @@
-/**
- * ADIVASISETU - APPLICATION CENTER & TRACKER JS
- * Section 13, 15 & 16: 6-Stage Timeline & Application Lifecycle
- */
-
 let allApplications = [];
 let currentFilterTab = 'All';
 
@@ -128,9 +123,7 @@ function getAppBadgeClass(status) {
   }
 }
 
-// ============================================================================
-// APPLICATION DETAILS & 6-STAGE TRACKER PAGE
-// ============================================================================
+// APPLICATION DETAILS & TRACKER PAGE
 
 async function loadApplicationTracker() {
   const urlParams = new URLSearchParams(window.location.search);
@@ -192,7 +185,6 @@ async function loadApplicationTracker() {
   }
 }
 
-// 6-Stage Timeline Visualizer
 // Profile Completed -> Documents Submitted -> Application Submitted -> Under Verification -> Final Decision -> Scholarship Received
 function renderSixStageTimeline(timeline, overallStatus) {
   const container = document.getElementById('tracker-timeline-container');

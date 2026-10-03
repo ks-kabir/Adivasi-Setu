@@ -1,7 +1,3 @@
-/**
- * ADIVASISETU - STUDENT DASHBOARD JS
- */
-
 async function loadStudentDashboard() {
   const token = getToken();
   if (!token) {

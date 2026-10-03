@@ -1,8 +1,3 @@
-/**
- * ADIVASISETU - GLOBAL UTILITIES & CORE JS
- * Tagline: One Platform • Five Schemes • One Scholarship Journey
- */
-
 const API_BASE = (window.ADIVASISETU_API_BASE || '/api').replace(/\/+$/, '');
 
 function appPageUrl(path) {
@@ -153,9 +148,7 @@ function getDaysRemaining(deadlineStr) {
   return diffDays > 0 ? diffDays : 0;
 }
 
-// ============================================================================
 // MOBILE NAVIGATION DRAWER CONTROLLER
-// ============================================================================
 
 function openMobileNav() {
   const drawer = document.getElementById('mobile-nav-drawer');
@@ -189,9 +182,7 @@ function toggleMobileFilters() {
   }
 }
 
-// ============================================================================
 // NAVBAR & AUTH STATE SETUP
-// ============================================================================
 
 async function setupGlobalNavbar() {
   const navActions = document.getElementById('nav-actions');
@@ -201,7 +192,7 @@ async function setupGlobalNavbar() {
   // Highlight active link in desktop navbar
   const currentPath = window.location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.nav-link').forEach(link => {
-    const href = link.getAttribute('href');
+    const href = (link.getAttribute('href') || '').replace(/^\.\//, '');
     if (href === currentPath || (currentPath === '' && href === 'index.html')) {
       link.classList.add('active');
     }

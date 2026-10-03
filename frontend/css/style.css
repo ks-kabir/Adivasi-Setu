@@ -1008,9 +1008,7 @@ input[type="range"] {
   color: var(--text-main);
 }
 
-/* ==========================================================================
-   MOBILE NAVIGATION DRAWER & BACKDROP
-   ========================================================================== */
+/* MOBILE NAVIGATION DRAWER & BACKDROP */
 
 .mobile-nav-backdrop {
   position: fixed;

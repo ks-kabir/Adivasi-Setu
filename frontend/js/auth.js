@@ -1,7 +1,3 @@
-/**
- * ADIVASISETU - AUTHENTICATION & ONBOARDING JAVASCRIPT
- */
-
 // Quick Demo Login Helper
 async function quickDemoLogin(role = 'student') {
   try {
@@ -136,9 +132,7 @@ async function handleRegister(e) {
   }
 }
 
-// ============================================================================
-// ONBOARDING WIZARD CONTROLLER (5 STEPS)
-// ============================================================================
+// ONBOARDING WIZARD CONTROLLER
 
 let currentStep = 1;
 const totalSteps = 5;

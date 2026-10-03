@@ -1,8 +1,3 @@
-/**
- * ADIVASISETU - ELIGIBILITY ENGINE JS
- * Section 10 & 11: 6-factor explainable algorithm & interactive criteria evaluator
- */
-
 async function initEligibilityPage() {
   await prefillStudentEligibilityInputs();
   await runEligibilityCheck();

@@ -1,8 +1,3 @@
-/**
- * ADIVASISETU - ADMIN PORTAL & ANALYTICS JS
- * Section 22 to 26: Administrative Dashboard, CRUD Scholarships, Application Review, Analytics
- */
-
 let adminStats = {};
 let adminAnalytics = {};
 let adminScholarships = [];
@@ -75,9 +70,7 @@ async function loadAdminDashboardData() {
   }
 }
 
-// ============================================================================
-// SCHOLARSHIP MANAGEMENT (SECTION 23 & 24)
-// ============================================================================
+// SCHOLARSHIP MANAGEMENT
 
 async function loadAdminScholarships() {
   const container = document.getElementById('admin-scholarships-table-body');
@@ -246,9 +239,7 @@ async function handleSaveScholarship(e) {
   }
 }
 
-// ============================================================================
-// APPLICATION MANAGEMENT (SECTION 25)
-// ============================================================================
+// APPLICATION MANAGEMENT
 
 async function loadAdminApplications() {
   const tbody = document.getElementById('admin-applications-table-body');
@@ -378,9 +369,7 @@ async function submitApplicationStatusUpdate() {
   }
 }
 
-// ============================================================================
-// ANALYTICS BARS (SECTION 26)
-// ============================================================================
+// ANALYTICS BARS
 
 function renderAnalyticsBars() {
   if (!adminAnalytics || !adminAnalytics.applicationsByScheme) return;

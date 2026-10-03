@@ -1,7 +1,6 @@
 /**
  * AdivasiSetu - Eligibility Engine
- * Section 10 & 29: Rule-based matching and explainable scoring for tribal students
- * 
+ *
  * Weights:
  * - Category: 20%
  * - Education: 20%
@@ -11,7 +10,6 @@
  * - Documents: 15%
  * Total: 100%
  * 
- * Note: Clearly labeled as platform-generated guidance, NOT official government decision.
  */
 
 function evaluateEligibility(student, scholarship, uploadedDocuments = []) {

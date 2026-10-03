@@ -1,7 +1,3 @@
-/**
- * ADIVASISETU - SCHOLARSHIPS DISCOVERY & DETAILS JS
- */
-
 let allScholarships = [];
 let activeFilters = {
   q: '',
@@ -270,9 +266,7 @@ async function toggleSaveScholarship(schId, btnElement) {
   }
 }
 
-// ============================================================================
 // SCHOLARSHIP DETAILS PAGE LOGIC
-// ============================================================================
 
 let currentScholarship = null;
 

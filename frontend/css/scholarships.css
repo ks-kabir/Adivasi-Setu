@@ -1,6 +1,4 @@
-/* ==========================================================================
-   ADIVASISETU - SCHOLARSHIPS & ELIGIBILITY ENGINE CSS
-   ========================================================================== */
+/* ADIVASISETU - SCHOLARSHIPS & ELIGIBILITY ENGINE CSS */
 
 .page-header {
   background: #ffffff;
@@ -279,9 +277,7 @@
   border-top: 1px solid var(--border);
 }
 
-/* ==========================================================================
-   SCHOLARSHIP DETAILS PAGE
-   ========================================================================== */
+/* SCHOLARSHIP DETAILS PAGE */
 
 .details-hero {
   background: #ffffff;
@@ -385,9 +381,7 @@
   font-weight: 500;
 }
 
-/* ==========================================================================
-   ELIGIBILITY ENGINE PAGE
-   ========================================================================== */
+/* ELIGIBILITY ENGINE PAGE */
 
 .eligibility-container {
   max-width: 1040px;
@@ -471,9 +465,7 @@
   margin: 0;
 }
 
-/* ==========================================================================
-   MOBILE RESPONSIVENESS FOR SCHOLARSHIPS & ELIGIBILITY
-   ========================================================================== */
+/* MOBILE RESPONSIVENESS FOR SCHOLARSHIPS & ELIGIBILITY */
 
 .mobile-filter-toggle-btn {
   display: none;
