@@ -55,11 +55,6 @@ async function loadStudentDashboard() {
   }
 }
 
-function setElText(id, text) {
-  const el = document.getElementById(id);
-  if (el) el.textContent = text;
-}
-
 function renderJourneyProgress(stageIndex) {
   const steps = document.querySelectorAll('.journey-step');
   const progressLine = document.getElementById('journey-line-progress');

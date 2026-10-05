@@ -113,16 +113,6 @@ function renderApplicationsList() {
   }).join('');
 }
 
-function getAppBadgeClass(status) {
-  switch (status) {
-    case 'Approved': return 'badge-approved';
-    case 'Under Review': return 'badge-review';
-    case 'Rejected': return 'badge-rejected';
-    case 'Submitted': return 'badge-submitted';
-    default: return 'badge-draft';
-  }
-}
-
 // APPLICATION DETAILS & TRACKER PAGE
 
 async function loadApplicationTracker() {

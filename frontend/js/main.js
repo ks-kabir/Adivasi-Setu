@@ -27,6 +27,21 @@ function setCurrentUser(user) {
   localStorage.setItem('adivasisetu_user', JSON.stringify(user));
 }
 
+function setElText(id, text) {
+  const el = document.getElementById(id);
+  if (el) el.textContent = text ?? '';
+}
+
+function getAppBadgeClass(status) {
+  switch (status) {
+    case 'Approved': return 'badge-approved';
+    case 'Under Review': return 'badge-review';
+    case 'Rejected': return 'badge-rejected';
+    case 'Submitted': return 'badge-submitted';
+    default: return 'badge-draft';
+  }
+}
+
 // Global API Request Helper
 async function apiRequest(endpoint, options = {}) {
   const token = getToken();
